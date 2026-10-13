@@ -63,8 +63,12 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
           
           {/* Brand Logo & Avatar (Monogram T in Emerald Mint) */}
           <a
-            href="#"
-            className="flex items-center gap-3 focus:outline-none group"
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="flex items-center gap-3 focus:outline-none group cursor-pointer"
             aria-label="Tanu Chaudhary"
           >
             {/* Monogram Circle */}
@@ -158,6 +162,7 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
             <button
               onClick={onOpenResume}
               className="p-2 rounded-full bg-slate-100 dark:bg-[#121620] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#1E2536]"
+              aria-label="View Resume"
             >
               <FileText className="w-4 h-4 text-slate-600 dark:text-slate-300" />
             </button>
@@ -165,6 +170,7 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-full text-slate-900 dark:text-white bg-slate-100 dark:bg-[#121620] border border-slate-200 dark:border-[#1E2536]"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>

@@ -32,11 +32,11 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
   const stats = [
     { number: '1.2M+', label: 'Data Rows Analyzed' },
     { number: '100%', label: 'Analytical Rigor' },
-    { number: '5+', label: 'Case Studies' },
+    { number: '4', label: 'Flagship Projects' },
   ];
 
   return (
-    <section className="relative min-h-0 bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white overflow-hidden pt-24 sm:pt-28 pb-10 sm:pb-14 flex flex-col justify-center transition-colors duration-200">
+    <section id="hero" className="relative min-h-0 bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white overflow-hidden pt-24 sm:pt-28 pb-10 sm:pb-14 flex flex-col justify-center transition-colors duration-200">
       
       {/* Subtle emerald ambient backlight glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-500/5 dark:bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />

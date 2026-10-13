@@ -145,7 +145,7 @@ export default function DecisionSandbox() {
               }`}
             >
               <DollarSign className="w-4 h-4" />
-              <span>Zepto 5-Yr DCF</span>
+              <span>Unlisted DCF Model</span>
             </button>
 
             <button
@@ -168,7 +168,7 @@ export default function DecisionSandbox() {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <h3 className="font-grotesk font-extrabold text-2xl text-slate-900 dark:text-white mb-2">
-                    Blinkit SKU Margin Recovery
+                    Retail SKU Margin Recovery
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
                     Calibrating blanket discount percentages preserves gross margin capture across top volume staples while stabilizing basket ticket size.
@@ -274,7 +274,7 @@ export default function DecisionSandbox() {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <h3 className="font-grotesk font-extrabold text-2xl text-slate-900 dark:text-white mb-2">
-                    Zepto Dark Store Breakeven
+                    Unlisted Company Dark Store Breakeven (DCF)
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
                     Evaluating dark store unit economics, delivery rider cost inflation, and order density thresholds required to achieve EBITDA-positive terminal valuation.

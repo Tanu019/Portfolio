@@ -61,7 +61,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <h1 className="font-grotesk font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white print:text-black tracking-tight">
                     Tanu Chaudhary
                   </h1>
-                  <p className="font-sans text-sm sm:base font-semibold text-emerald-600 dark:text-emerald-400 print:text-gray-800 mt-1">
+                  <p className="font-sans text-sm sm:text-base font-semibold text-emerald-600 dark:text-emerald-400 print:text-gray-800 mt-1">
                     Aspiring Business Analyst • MBA in Business Analytics
                   </p>
                 </div>
@@ -91,7 +91,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Professional Summary */}
           <div>
-            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-white text-slate-950 mb-2 print:bg-gray-100 print:text-black">
+            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-emerald-600 dark:border-emerald-400 mb-2 print:bg-gray-100 print:text-black">
               Professional Summary
             </h3>
             <p className="font-sans text-sm text-slate-700 dark:text-slate-300 print:text-gray-900 leading-relaxed font-normal">
@@ -101,7 +101,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Education */}
           <div>
-            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-white text-slate-950 mb-3 print:bg-gray-100 print:text-black">
+            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-emerald-600 dark:border-emerald-400 mb-3 print:bg-gray-100 print:text-black">
               Education
             </h3>
             <div className="space-y-3">
@@ -120,7 +120,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Experience */}
           <div>
-            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-white text-slate-950 mb-3 print:bg-gray-100 print:text-black">
+            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-emerald-600 dark:border-emerald-400 mb-3 print:bg-gray-100 print:text-black">
               Internship Experience
             </h3>
             <div className="space-y-4">
@@ -145,7 +145,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Technical & Core Skills */}
           <div>
-            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-white text-slate-950 mb-3 print:bg-gray-100 print:text-black">
+            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-emerald-600 dark:border-emerald-400 mb-3 print:bg-gray-100 print:text-black">
               Core Skills & Tools
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -170,7 +170,7 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Certifications */}
           <div>
-            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-white text-slate-950 mb-3 print:bg-gray-100 print:text-black">
+            <h3 className="font-grotesk font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white bg-slate-100 dark:bg-[#111827] px-3 py-1.5 border-l-4 border-emerald-600 dark:border-emerald-400 mb-3 print:bg-gray-100 print:text-black">
               Certifications & Workshops
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs font-sans">
