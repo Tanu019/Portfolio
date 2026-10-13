@@ -46,22 +46,32 @@ export default function CommandPalette({
       }
     },
     {
+      id: 'sec-sandbox',
+      title: 'Interactive Decision Sandbox',
+      category: 'Navigation',
+      icon: Calculator,
+      action: () => {
+        document.getElementById('sandbox')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      }
+    },
+    {
+      id: 'sec-services',
+      title: 'Capabilities & Strategy Toolkit',
+      category: 'Navigation',
+      icon: Sparkles,
+      action: () => {
+        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      }
+    },
+    {
       id: 'sec-about',
       title: 'Executive Profile & Story',
       category: 'Navigation',
       icon: Compass,
       action: () => {
         document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
-      id: 'sec-skills',
-      title: 'Core Competency Matrix',
-      category: 'Navigation',
-      icon: Calculator,
-      action: () => {
-        document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
         onClose();
       }
     },
@@ -173,32 +183,32 @@ export default function CommandPalette({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-950/60 dark:bg-slate-950/85 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="w-full max-w-2xl bg-[#111923] text-white rounded-2xl border border-[#223245] shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
+        className="w-full max-w-2xl bg-white dark:bg-[#111923] text-slate-900 dark:text-white rounded-2xl border border-slate-200 dark:border-[#223245] shadow-2xl overflow-hidden flex flex-col max-h-[80vh] transition-colors"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={handleKeyDown}
       >
         {/* Search Header */}
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-[#223245] bg-[#0A0F16]">
-          <Search className="w-5 h-5 text-sky-400" />
+        <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-200 dark:border-[#223245] bg-slate-50 dark:bg-[#0A0F16]">
+          <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           <input
             ref={inputRef}
             type="text"
             placeholder="Type a command, project name, tool (SQL, Tableau, DCF)..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 bg-transparent border-none outline-none font-sans text-base font-semibold text-white placeholder:text-slate-500"
+            className="flex-1 bg-transparent border-none outline-none font-sans text-base font-semibold text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500"
           />
           <div className="flex items-center gap-1.5">
-            <kbd className="hidden sm:inline-block font-mono text-xs font-bold px-2 py-0.5 rounded bg-[#182332] text-sky-300 border border-[#223245]">
+            <kbd className="hidden sm:inline-block font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-200 dark:bg-[#182332] text-slate-700 dark:text-emerald-300 border border-slate-300 dark:border-[#223245]">
               ESC
             </kbd>
             <button 
               onClick={onClose}
-              className="p-1 rounded-md text-slate-400 hover:text-white"
+              className="p-1 rounded-md text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -206,15 +216,15 @@ export default function CommandPalette({
         </div>
 
         {/* Results List */}
-        <div ref={listRef} className="overflow-y-auto p-3 space-y-1 bg-[#111923]">
+        <div ref={listRef} className="overflow-y-auto p-3 space-y-1 bg-white dark:bg-[#111923]">
           {filteredItems.length === 0 ? (
             <div className="py-12 text-center">
-              <Sparkles className="w-8 h-8 text-sky-400 mx-auto mb-2" />
-              <p className="font-grotesk font-bold text-lg text-white">
+              <Sparkles className="w-8 h-8 text-emerald-500 dark:text-emerald-400 mx-auto mb-2" />
+              <p className="font-grotesk font-bold text-lg text-slate-900 dark:text-white">
                 No matching actions found
               </p>
-              <p className="font-mono text-xs text-slate-400 mt-1">
-                Try searching for "Tableau", "Zepto", "Resume", "SQL", or "Contact"
+              <p className="font-sans text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Try searching for "Cancer Sakhi", "DCF Model", "Swiftkart", "Career Intelligence", or "Resume"
               </p>
             </div>
           ) : (
@@ -228,26 +238,26 @@ export default function CommandPalette({
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-150 ${
                     isSelected
-                      ? 'bg-sky-500 text-slate-950 shadow-md font-bold'
-                      : 'hover:bg-[#182332] text-slate-200'
+                      ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 font-bold'
+                      : 'hover:bg-slate-100 dark:hover:bg-[#182332] text-slate-700 dark:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className={`p-2 rounded-lg ${
                       isSelected 
-                        ? 'bg-slate-950/20 text-slate-950' 
-                        : 'bg-[#0A0F16] text-sky-400 border border-[#223245]'
+                        ? 'bg-white/20 text-white' 
+                        : 'bg-slate-100 dark:bg-[#0A0F16] text-emerald-600 dark:text-emerald-400 border border-slate-200 dark:border-[#223245]'
                     }`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="truncate">
                       <span className={`font-grotesk font-bold text-sm block truncate ${
-                        isSelected ? 'text-slate-950' : 'text-white'
+                        isSelected ? 'text-white' : 'text-slate-900 dark:text-white'
                       }`}>
                         {item.title}
                       </span>
-                      <span className={`font-mono text-[10px] uppercase font-bold tracking-wider block ${
-                        isSelected ? 'text-slate-900' : 'text-slate-400'
+                      <span className={`font-sans text-[11px] font-semibold tracking-wide block ${
+                        isSelected ? 'text-emerald-100' : 'text-slate-500 dark:text-slate-400'
                       }`}>
                         {item.category}
                       </span>
@@ -256,16 +266,16 @@ export default function CommandPalette({
 
                   <div className="flex items-center gap-2 shrink-0 ml-3">
                     {item.badge && (
-                      <span className={`font-mono text-[11px] font-bold px-2 py-0.5 rounded border ${
+                      <span className={`font-mono text-[11px] font-semibold px-2 py-0.5 rounded border ${
                         isSelected 
-                          ? 'bg-slate-950/20 text-slate-950 border-slate-950/30' 
-                          : 'bg-[#0A0F16] text-sky-300 border-[#223245]'
+                          ? 'bg-white/20 text-white border-white/30' 
+                          : 'bg-slate-100 dark:bg-[#0A0F16] text-emerald-700 dark:text-emerald-300 border-slate-200 dark:border-[#223245]'
                       }`}>
                         {item.badge}
                       </span>
                     )}
                     <ArrowRight className={`w-4 h-4 ${
-                      isSelected ? 'text-slate-950 translate-x-0.5' : 'text-slate-500 opacity-0 group-hover:opacity-100'
+                      isSelected ? 'text-white translate-x-0.5' : 'text-slate-400 opacity-0 group-hover:opacity-100'
                     } transition-all`} />
                   </div>
                 </div>
@@ -275,12 +285,12 @@ export default function CommandPalette({
         </div>
 
         {/* Footer shortcuts helper */}
-        <div className="px-5 py-3 bg-[#0A0F16] border-t border-[#223245] flex items-center justify-between text-xs font-mono font-bold text-slate-400">
+        <div className="px-5 py-3 bg-slate-50 dark:bg-[#0A0F16] border-t border-slate-200 dark:border-[#223245] flex items-center justify-between text-xs font-mono font-medium text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-3">
-            <span><kbd className="px-1.5 py-0.5 bg-[#182332] text-slate-300 rounded border border-[#223245]">↑</kbd> <kbd className="px-1.5 py-0.5 bg-[#182332] text-slate-300 rounded border border-[#223245]">↓</kbd> to navigate</span>
-            <span><kbd className="px-1.5 py-0.5 bg-[#182332] text-slate-300 rounded border border-[#223245]">↵</kbd> to select</span>
+            <span><kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-[#182332] text-slate-700 dark:text-slate-300 rounded border border-slate-300 dark:border-[#223245]">↑</kbd> <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-[#182332] text-slate-700 dark:text-slate-300 rounded border border-slate-300 dark:border-[#223245]">↓</kbd> navigate</span>
+            <span><kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-[#182332] text-slate-700 dark:text-slate-300 rounded border border-slate-300 dark:border-[#223245]">↵</kbd> select</span>
           </div>
-          <span className="text-sky-400 font-extrabold">Tanu Chaudhary Portfolio</span>
+          <span className="text-emerald-600 dark:text-emerald-400 font-semibold font-sans">Tanu Chaudhary Portfolio</span>
         </div>
       </div>
     </div>

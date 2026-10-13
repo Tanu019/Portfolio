@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ValueStrip from './components/ValueStrip';
-import ProjectShowcase from './components/ProjectShowcase';
-import AboutSection from './components/AboutSection';
 import SkillsSection from './components/SkillsSection';
+import ProjectShowcase from './components/ProjectShowcase';
+import DecisionSandbox from './components/DecisionSandbox';
+import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
@@ -16,10 +16,29 @@ export default function App() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [selectedModalProject, setSelectedModalProject] = useState(null);
 
-  // Default to dark theme permanently
+  // Theme state: defaults to dark matching Titanium aesthetic
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return 'dark';
+    }
+    return 'dark';
+  });
+
   useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   // Global keyboard shortcut listener for Command Palette (Ctrl+K / Cmd+K or '/')
   useEffect(() => {
@@ -37,7 +56,7 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Top scroll progress indicator
+  // Top scroll progress indicator (Brushed Silver / Platinum)
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -53,41 +72,44 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0F16] text-[#F1F5F9] font-sans selection:bg-sky-500 selection:text-slate-950 relative">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white font-sans selection:bg-emerald-600 selection:text-white transition-colors duration-200 relative">
       {/* Top Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-300 z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 via-emerald-500 to-teal-400 z-50 origin-left"
         style={{ scaleX }}
       />
 
       {/* Navigation */}
       <Navbar
+        theme={theme}
+        onToggleTheme={toggleTheme}
         onOpenResume={() => setResumeOpen(true)}
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
       />
 
-      {/* Hero Section */}
+      {/* Hero Section with Titanium Arch & Stacked Stats */}
       <Hero
         onExploreWork={() => scrollToSection('work')}
         onConnect={() => scrollToSection('contact')}
+        onOpenResume={() => setResumeOpen(true)}
       />
 
-      {/* Marquee Value Strip */}
-      <ValueStrip />
+      {/* "What do I help" - Horizontal Service Cards */}
+      <SkillsSection />
 
-      {/* Project Showcase */}
+      {/* "My recent projects" - Projects Grid */}
       <ProjectShowcase 
         onSelectProjectFromParent={(proj) => setSelectedModalProject(proj)}
         externalSelectedProject={selectedModalProject}
       />
 
+      {/* Interactive Decision Sandbox */}
+      <DecisionSandbox />
+
       {/* About Section */}
       <AboutSection onOpenResume={() => setResumeOpen(true)} />
 
-      {/* Skills Matrix */}
-      <SkillsSection />
-
-      {/* Contact Section */}
+      {/* Contact Section: "Let's talk" */}
       <ContactSection onOpenResume={() => setResumeOpen(true)} />
 
       {/* Footer */}

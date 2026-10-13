@@ -8,16 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
+        titanium: {
+          bg: '#0E1015',
+          card: '#161922',
+          cardHover: '#1E2330',
+          border: '#262B38',
+          borderLight: '#32394A',
+          arch: '#282E3E',
+          silver: '#E2E8F0',
+          muted: '#94A3B8',
+        },
+        themeDark: {
+          bg: '#0E1015',
+          card: '#161922',
+          cardLight: '#1E2330',
+          border: '#262B38',
+          subtext: '#94A3B8',
+        },
         darkbg: {
-          DEFAULT: '#0A0F16',
-          card: '#111923',
-          cardLight: '#182332',
-          border: '#223245',
-          borderLight: '#2F455E',
+          DEFAULT: '#0E1015',
+          card: '#161922',
+          cardLight: '#1E2330',
+          border: '#262B38',
+          borderLight: '#32394A',
         }
       },
       fontFamily: {
-        grotesk: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        grotesk: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },

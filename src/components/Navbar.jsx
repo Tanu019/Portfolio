@@ -4,17 +4,21 @@ import {
   ArrowUpRight, 
   Menu, 
   X, 
-  Sparkles, 
-  Search 
+  MessageSquare, 
+  Search, 
+  Sun, 
+  Moon,
+  Clock 
 } from 'lucide-react';
 
-export default function Navbar({ onOpenResume, onOpenCommandPalette }) {
+export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenCommandPalette }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [localTime, setLocalTime] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -24,161 +28,187 @@ export default function Navbar({ onOpenResume, onOpenCommandPalette }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setLocalTime(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(now));
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const navLinks = [
-    { name: 'Work', href: '#work' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Service', href: '#services' },
+    { name: 'Portfolio', href: '#work' },
+    { name: 'Sandbox', href: '#sandbox' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0A0F16]/90 backdrop-blur-md py-3 text-white border-b border-[#223245] shadow-xl'
-          : 'bg-transparent py-5 text-white'
+          ? 'bg-white/95 dark:bg-[#08090C]/95 backdrop-blur-md py-3 border-b border-slate-200 dark:border-[#1E2330] shadow-sm dark:shadow-2xl'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo & TC Monogram */}
+          
+          {/* Brand Logo & Avatar (Monogram T in Emerald Mint) */}
           <a
             href="#"
-            className="group flex items-center gap-3 focus:outline-none"
-            aria-label="Tanu Chaudhary Homepage"
+            className="flex items-center gap-3 focus:outline-none group"
+            aria-label="Tanu Chaudhary"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 bg-sky-500 text-slate-950 rounded-xl font-grotesk font-extrabold text-base border-2 border-sky-400 group-hover:bg-white transition-all duration-200 shadow-md">
-              <span>TC</span>
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-sky-400 rounded-full animate-ping" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-sky-400 rounded-full border border-[#0A0F16]" />
+            {/* Monogram Circle */}
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-900 text-white font-grotesk font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition-transform">
+              T
             </div>
 
             <div className="flex flex-col">
-              <span className="font-grotesk font-extrabold tracking-tight text-xl leading-none text-white group-hover:text-sky-400 transition-colors">
-                TANU CHAUDHARY
+              <span className="font-grotesk font-bold text-lg sm:text-xl text-slate-900 dark:text-white leading-none">
+                Tanu
               </span>
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase text-sky-400/90 mt-0.5">
-                Analytics & Strategy
+              <span className="font-sans text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 tracking-wide">
+                Business Analyst
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="font-grotesk font-bold text-sm tracking-wider uppercase transition-all duration-200 relative py-1 text-slate-200 hover:text-white group"
-                >
-                  {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 transition-all duration-200 group-hover:w-full" />
-                </a>
-              ))}
+          {/* Center Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="font-sans font-medium text-sm text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right Action Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Live Local Time Badge */}
+            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-[#121620] border border-slate-200 dark:border-[#1E2536] text-[11px] font-mono text-slate-700 dark:text-slate-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>{localTime || '09:15 PM'} IST</span>
             </div>
 
-            <div className="flex items-center gap-3 pl-4 border-l border-[#223245]">
-              {/* Quick Search Button (Command Palette) */}
-              <button
-                onClick={onOpenCommandPalette}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-[#111923] text-sky-300 border border-[#223245] hover:border-sky-400 transition-all shadow-sm"
-                title="Search commands, projects, skills (Ctrl + K)"
-              >
-                <Search className="w-3.5 h-3.5 text-sky-400" />
-                <span className="hidden lg:inline">Search</span>
-                <kbd className="font-mono text-[10px] px-1.5 py-0.5 bg-[#182332] text-slate-300 rounded border border-[#223245] font-bold">
-                  ⌘K
-                </kbd>
-              </button>
+            {/* Search Button (Command Palette) */}
+            <button
+              onClick={onOpenCommandPalette}
+              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-[#121620] dark:hover:bg-[#1A2030] text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 border border-slate-200 dark:border-[#1E2536] transition-colors"
+              title="Search commands (⌘K)"
+            >
+              <Search className="w-4 h-4" />
+            </button>
 
-              {/* Status Pill */}
-              <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-[#111923] text-emerald-400 border border-emerald-500/30">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Open for Roles</span>
-              </div>
+            {/* Theme Toggle Button (Light / Dark) */}
+            <button
+              onClick={onToggleTheme}
+              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-[#121620] dark:hover:bg-[#1A2030] text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 border border-slate-200 dark:border-[#1E2536] transition-colors"
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-emerald-600" />}
+            </button>
 
-              {/* Resume Button */}
+            {/* Resume Button */}
+            {onOpenResume && (
               <button
                 onClick={onOpenResume}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl font-grotesk font-extrabold text-xs uppercase tracking-wider transition-all duration-200 bg-sky-500 text-slate-950 hover:bg-sky-400 shadow-md hover:shadow-sky-500/20"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full font-sans font-semibold text-xs text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-[#121620] dark:hover:bg-[#1A2030] border border-slate-200 dark:border-[#1E2536] hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Resume</span>
               </button>
-            </div>
-          </nav>
+            )}
+
+            {/* Let's talk Button in Emerald Mint */}
+            <a
+              href="#contact"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full font-sans font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/30 hover:shadow-lg hover:shadow-emerald-600/40"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-white" />
+              <span>Let's talk</span>
+            </a>
+          </div>
 
           {/* Mobile Menu Controls */}
           <div className="flex items-center gap-2 md:hidden">
             <button
-              onClick={onOpenCommandPalette}
-              className="p-2 rounded-lg bg-[#111923] text-sky-300 border border-[#223245]"
-              aria-label="Open search"
+              onClick={onToggleTheme}
+              className="p-2 rounded-full bg-slate-100 dark:bg-[#121620] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#1E2536]"
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
             >
-              <Search className="w-4 h-4" />
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-emerald-600" />}
             </button>
+
             <button
               onClick={onOpenResume}
-              className="p-2 rounded-md font-grotesk font-bold text-xs bg-sky-500 text-slate-950"
-              title="View Resume"
+              className="p-2 rounded-full bg-slate-100 dark:bg-[#121620] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-[#1E2536]"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-4 h-4 text-slate-600 dark:text-slate-300" />
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-[#111923] transition-colors"
-              aria-label="Toggle navigation menu"
+              className="p-2 rounded-full text-slate-900 dark:text-white bg-slate-100 dark:bg-[#121620] border border-slate-200 dark:border-[#1E2536]"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#111923] text-white border-b border-[#223245] px-6 py-6 transition-all duration-200 shadow-2xl">
+        <div className="md:hidden bg-white dark:bg-[#0B0E17] text-slate-900 dark:text-white border-b border-slate-200 dark:border-[#1E2536] px-6 py-6 shadow-2xl">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#0A0F16] text-sky-300 font-mono text-xs font-bold w-fit mb-2 border border-sky-500/30">
-              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-              <span>Seeking Business Analyst Opportunities</span>
-            </div>
-
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="font-grotesk font-extrabold text-lg uppercase tracking-wider text-white hover:text-sky-400 py-2 border-b border-[#223245] flex items-center justify-between"
+                className="font-grotesk font-semibold text-base text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 py-2 border-b border-slate-200 dark:border-[#1E2536]/60 flex items-center justify-between"
               >
                 <span>{link.name}</span>
-                <ArrowUpRight className="w-4 h-4 text-sky-400" />
+                <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               </a>
             ))}
 
-            <div className="pt-2 flex flex-col gap-2">
+            <div className="pt-2 flex flex-col gap-2.5">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenCommandPalette();
                 }}
-                className="flex items-center justify-center gap-2 w-full py-3 bg-[#0A0F16] text-sky-300 font-mono text-xs uppercase font-bold rounded-xl border border-[#223245]"
+                className="flex items-center justify-center gap-2 w-full py-3 bg-slate-100 dark:bg-[#121620] text-slate-800 dark:text-slate-200 font-sans text-xs font-semibold rounded-full border border-slate-200 dark:border-[#1E2536]"
               >
-                <Search className="w-4 h-4" />
-                <span>Search Everything (⌘K)</span>
+                <Search className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>Search Portfolio (⌘K)</span>
               </button>
 
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
-                className="flex items-center justify-center gap-2 w-full py-3.5 bg-sky-500 text-slate-950 font-grotesk font-bold text-sm uppercase rounded-xl shadow-lg hover:bg-sky-400"
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-sm rounded-full shadow-lg shadow-emerald-600/30"
               >
-                <FileText className="w-4 h-4" />
-                <span>View Full Resume (PDF)</span>
-              </button>
+                <MessageSquare className="w-4 h-4" />
+                <span>Let's talk</span>
+              </a>
             </div>
           </div>
         </div>

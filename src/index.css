@@ -5,41 +5,38 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0A0F16;
-    color: #F1F5F9;
-  }
-
-  body {
-    background-color: #0A0F16;
-    color: #F1F5F9;
-    overflow-x: hidden;
   }
 
   /* Custom elegant scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0A0F16;
+    @apply bg-slate-100 dark:bg-[#0A0F17];
   }
   ::-webkit-scrollbar-thumb {
-    background: #2A3C4F;
-    border-radius: 4px;
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #38BDF8;
+    @apply bg-emerald-500;
   }
 }
 
-/* Subtle dark grid overlay */
+/* Subtle architectural grid overlay */
 .pearl-grid {
-  background-size: 36px 36px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
-/* Custom Range Slider Styling */
+.dark .pearl-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Custom Range Slider Styling (Flat 2D) */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -48,9 +45,14 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-track {
-  background: #1E293B;
+  background: #E2E8F0;
   height: 6px;
   border-radius: 3px;
+  border: 1px solid #CBD5E1;
+}
+
+.dark input[type="range"]::-webkit-slider-track {
+  background: #1E293B;
   border: 1px solid #334155;
 }
 
@@ -59,16 +61,22 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 18px;
   height: 18px;
-  background: #38BDF8;
-  border: 2px solid #0A0F16;
+  background: #059669;
+  border: 2px solid #FFFFFF;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   margin-top: -6px;
   transition: transform 0.1s ease;
 }
 
+.dark input[type="range"]::-webkit-slider-thumb {
+  background: #10B981;
+  border: 2px solid #0A0F16;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* Smooth marquee ticker */

@@ -1,106 +1,21 @@
 export const projectsData = [
   {
-    id: "retail-performance",
-    number: "01",
-    tag: "FEATURED CASE STUDY",
-    category: "Retail Analytics",
-    title: "RETAIL PERFORMANCE",
-    subtitle: "Turning grocery sales data into high-margin inventory decisions.",
-    shortDesc: "End-to-end performance analytics on grocery retail datasets to uncover product category velocity, regional revenue drivers, and discount sensitivity.",
-    tools: ["Tableau", "Advanced Excel", "Power BI", "SQL"],
-    featured: true,
-    accentColor: "#526578",
-    highlightBadge: "1.2M+ ROWS ANALYZED",
-    liveUrl: null,
-    githubUrl: "https://github.com/Tanu019",
-    metrics: [
-      { label: "Revenue Contribution", value: "38.4%", note: "Top 3 categories (Dairy & Fresh)" },
-      { label: "Discount Elasticity", value: "-1.8x", note: "Optimized promotional threshold" },
-      { label: "Inventory Turn Rate", value: "+22%", note: "Projected holding cost reduction" }
-    ],
-    overview: {
-      problem: "A high-velocity grocery retail chain faced inventory stockouts in high-demand items while suffering margin erosion due to uncalibrated seasonal discounting across suburban outlets.",
-      approach: "Extracted and cleaned multi-store point-of-sale data using Advanced Excel & SQL. Built interactive Tableau dashboards analyzing sales velocity, item affinity, and regional margin trends.",
-      findings: [
-        "20% of SKU inventory contributed to 76% of net gross margin.",
-        "Over-discounting on staple items resulted in a 4.2% unnecessary gross profit bleed without lifting volume.",
-        "Weekend peak hours in Tier-1 locations experienced 14% revenue loss due to stockout lag."
-      ],
-      recommendations: [
-        "Implement automated replenishment triggers at 25% safety stock for Tier-A SKUs.",
-        "Shift discounting from blanket percentages to basket-building bundle promotions.",
-        "Standardize store-level category health scorecards in weekly operations reviews."
-      ]
-    },
-    visualData: {
-      type: "chart",
-      chartTitle: "Category Margin vs Sales Volume Breakdown",
-      dataPoints: [
-        { label: "Dairy & Eggs", value: 85, margin: 28 },
-        { label: "Fresh Produce", value: 92, margin: 34 },
-        { label: "Packaged Foods", value: 64, margin: 42 },
-        { label: "Beverages", value: 58, margin: 48 },
-        { label: "Personal Care", value: 41, margin: 55 }
-      ]
-    }
-  },
-  {
-    id: "valuing-zepto",
-    number: "02",
-    tag: "FINANCIAL MODELING",
-    category: "Valuation & DCF",
-    title: "VALUING ZEPTO",
-    subtitle: "Exploring the financial assumptions behind quick-commerce economics.",
-    shortDesc: "Comprehensive 5-year Discounted Cash Flow (DCF) model analyzing unit economics, dark store density, and path to EBITDA breakeven.",
-    tools: ["Excel", "Financial Modeling", "DCF", "Sensitivity Analysis"],
-    featured: false,
-    accentColor: "#526578",
-    highlightBadge: "5-YR DCF PROJECTION",
-    liveUrl: null,
-    githubUrl: "https://github.com/Tanu019",
-    metrics: [
-      { label: "Target Terminal Growth", value: "5.5%", note: "Long-term quick-commerce CAGR" },
-      { label: "WACC Benchmark", value: "13.2%", note: "Adjusted for emerging market risk" },
-      { label: "Order Contribution", value: "+₹14/order", note: "At 1,400 orders/day per dark store" }
-    ],
-    overview: {
-      problem: "Quick-commerce hypergrowth is fueled by venture capital, but long-term enterprise value depends critically on dark store throughput, delivery rider efficiency, and advertising take rates.",
-      approach: "Constructed a granular DCF model modeling dark store CAPEX, rider payout dynamics, average order value (AOV) expansion, and terminal multiple sensitivity.",
-      findings: [
-        "Dark store breakeven occurs at ~1,150 daily orders with minimum ₹420 AOV.",
-        "Advertising revenue and private label margin expansion represent 60% of positive EBITDA margin by Year 4.",
-        "Valuation displays highest sensitivity to delivery cost inflation and customer churn rate."
-      ],
-      recommendations: [
-        "Prioritize dark store density over broad geographical expansion to amortize supply chain fixed costs.",
-        "Monetize high-intent consumer search with sponsored listings and brand partnership banner placements.",
-        "Introduce tiered delivery fees during peak rush intervals to protect contribution margins."
-      ]
-    },
-    visualData: {
-      type: "valuation",
-      chartTitle: "WACC vs Terminal Growth Sensitivity ($B Valuation)",
-      matrix: [
-        { wacc: "12.0%", g4: "4.8B", g5: "5.4B", g6: "6.2B" },
-        { wacc: "13.2%", g4: "4.1B", g5: "4.7B", g6: "5.3B" },
-        { wacc: "14.5%", g4: "3.5B", g5: "4.0B", g6: "4.5B" }
-      ]
-    }
-  },
-  {
     id: "cancer-sakhi",
-    number: "03",
+    number: "01",
     tag: "AI & SOCIAL IMPACT",
     category: "AI & Healthcare",
-    title: "TECHNOLOGY WITH PURPOSE",
+    title: "Cancer Sakhi",
     subtitle: "An AI-powered breast cancer awareness and early detection assistant.",
-    shortDesc: "Led the UI design, user experience architecture, and community outreach for Cancer Sakhi, an AI-driven multilingual health companion.",
+    shortDesc: "Led the UI design, user experience architecture, and community outreach for Cancer Sakhi, an AI-driven multilingual health companion providing culturally sensitive symptom guidance.",
     tools: ["Python", "Supabase", "Claude LLM", "UI/UX Design", "GitHub"],
-    featured: false,
-    accentColor: "#A8BED0",
-    highlightBadge: "LIVE DEPLOYED PRODUCT",
+    featured: true,
+    accentColor: "#10B981",
+    highlightBadge: "LIVE WEB APPLICATION",
     liveUrl: "https://cancer-sakhi.onrender.com/",
+    fileUrl: null,
     githubUrl: "https://github.com/Tanu019",
+    actionLabel: "Open Live App",
+    actionType: "live",
     metrics: [
       { label: "User Interaction", value: "Multilingual", note: "Hindi & English natural dialogue" },
       { label: "Response Latency", value: "<1.2s", note: "Fast conversational health guidance" },
@@ -131,19 +46,117 @@ export const projectsData = [
     }
   },
   {
+    id: "dcf-model-unlisted",
+    number: "02",
+    tag: "FINANCIAL MODELING",
+    category: "Valuation & DCF",
+    title: "DCF Model of Unlisted Company",
+    subtitle: "5-Year DCF valuation, dark store unit economics, and WACC sensitivity analysis.",
+    shortDesc: "Comprehensive financial valuation model analyzing unit economics, dark store density, capital expenditure cycles, and path to EBITDA breakeven for high-growth unlisted enterprises.",
+    tools: ["Advanced Excel", "Financial Modeling", "DCF Projections", "Sensitivity Analysis"],
+    featured: true,
+    accentColor: "#10B981",
+    highlightBadge: "EXCEL WORKBOOK (.XLSX)",
+    liveUrl: "#sandbox",
+    fileUrl: "/downloads/DCF_Model_Unlisted_Company.xlsx",
+    fileName: "DCF_Model_Unlisted_Company.xlsx",
+    fileType: "Excel Spreadsheet (.xlsx)",
+    githubUrl: "https://github.com/Tanu019",
+    actionLabel: "Download Model (.xlsx)",
+    actionType: "file",
+    metrics: [
+      { label: "Target Terminal Growth", value: "5.5%", note: "Long-term quick-commerce CAGR" },
+      { label: "WACC Benchmark", value: "13.2%", note: "Adjusted for emerging market risk" },
+      { label: "Order Contribution", value: "+₹14/order", note: "At 1,400 orders/day per dark store" }
+    ],
+    overview: {
+      problem: "Quick-commerce hypergrowth is fueled by venture capital, but long-term enterprise value depends critically on dark store throughput, delivery rider efficiency, and advertising take rates.",
+      approach: "Constructed a granular DCF model modeling dark store CAPEX, rider payout dynamics, average order value (AOV) expansion, and terminal multiple sensitivity.",
+      findings: [
+        "Dark store breakeven occurs at ~1,150 daily orders with minimum ₹420 AOV.",
+        "Advertising revenue and private label margin expansion represent 60% of positive EBITDA margin by Year 4.",
+        "Valuation displays highest sensitivity to delivery cost inflation and customer churn rate."
+      ],
+      recommendations: [
+        "Prioritize dark store density over broad geographical expansion to amortize supply chain fixed costs.",
+        "Monetize high-intent consumer search with sponsored listings and brand partnership banner placements.",
+        "Introduce tiered delivery fees during peak rush intervals to protect contribution margins."
+      ]
+    },
+    visualData: {
+      type: "valuation",
+      chartTitle: "WACC vs Terminal Growth Sensitivity ($B Valuation)",
+      matrix: [
+        { wacc: "12.0%", g4: "4.8B", g5: "5.4B", g6: "6.2B" },
+        { wacc: "13.2%", g4: "4.1B", g5: "4.7B", g6: "5.3B" },
+        { wacc: "14.5%", g4: "3.5B", g5: "4.0B", g6: "4.5B" }
+      ]
+    }
+  },
+  {
+    id: "swiftkart-ai-assistant",
+    number: "03",
+    tag: "AI & BUSINESS INTELLIGENCE",
+    category: "AI Chatbot & SQL Assistant",
+    title: "Swiftkart AI Assistant",
+    subtitle: "Translating plain English business questions into instant database queries and charts.",
+    shortDesc: "Built an intelligent business assistant that bridges non-technical business stakeholders and enterprise databases with auto-correcting SQL execution and instant data charting.",
+    tools: ["LLMs", "PostgreSQL", "SQL Views", "Power BI", "Data Viz"],
+    featured: true,
+    accentColor: "#10B981",
+    highlightBadge: "SQL PIPELINE (.SQL)",
+    liveUrl: "https://github.com/Tanu019/Dashboard-PowerBI-Dummy",
+    fileUrl: "/downloads/Swiftkart_SQL_Analytics_Pipeline.sql",
+    fileName: "Swiftkart_SQL_Analytics_Pipeline.sql",
+    fileType: "SQL Pipeline (.sql)",
+    githubUrl: "https://github.com/Tanu019/Dashboard-PowerBI-Dummy",
+    actionLabel: "Download SQL (.sql)",
+    actionType: "file",
+    metrics: [
+      { label: "Query Accuracy", value: "96.5%", note: "With auto-healing syntax correction" },
+      { label: "Time-to-Insight", value: "Instant", note: "From question to visual chart" },
+      { label: "Format Support", value: "3 Modes", note: "Direct text, data tables, and dynamic charts" }
+    ],
+    overview: {
+      problem: "Business managers routinely wait hours or days for data analytics teams to write custom SQL queries and generate simple executive reports.",
+      approach: "Developed an AI chatbot interface powered by LLMs that parses business intent, generates schema-compliant SQL, executes queries, and outputs tabular and chart visualizations.",
+      findings: [
+        "Natural language query generation reduced ad-hoc reporting requests to engineering by 70%.",
+        "Interactive chart auto-selection based on query result data types delivered immediate executive clarity."
+      ],
+      recommendations: [
+        "Implement role-based access control (RBAC) to ensure secure query limits on sensitive financial tables.",
+        "Add one-click export to Excel and PDF executive summaries."
+      ]
+    },
+    visualData: {
+      type: "chart",
+      chartTitle: "Ad-Hoc Request Volume Before vs After BI Assistant",
+      dataPoints: [
+        { label: "Week 1", value: 95, margin: 10 },
+        { label: "Week 2", value: 72, margin: 35 },
+        { label: "Week 3", value: 45, margin: 68 },
+        { label: "Week 4", value: 24, margin: 88 }
+      ]
+    }
+  },
+  {
     id: "career-intelligence",
     number: "04",
     tag: "SYSTEM ARCHITECTURE",
     category: "EdTech & Analytics",
-    title: "DESIGNING CAREER PATHWAYS",
-    subtitle: "A structured student career assessment and guidance intelligence system.",
-    shortDesc: "Designed data acquisition workflows, academic data structures, and intuitive assessment dashboards for student competency mapping.",
-    tools: ["Supabase", "Antigravity IDE", "API Integration", "ChatGPT"],
-    featured: false,
-    accentColor: "#526578",
-    highlightBadge: "STUDENT WORKFLOW SYSTEM",
+    title: "Career Intelligence",
+    subtitle: "CaseCraft MBA — Structured student career assessment and guidance intelligence system.",
+    shortDesc: "Designed data acquisition workflows, academic data structures in Supabase, and intuitive assessment dashboards for student analytics competency mapping.",
+    tools: ["Supabase", "React", "API Integration", "ChatGPT", "Analytics"],
+    featured: true,
+    accentColor: "#10B981",
+    highlightBadge: "LIVE WEB APPLICATION",
     liveUrl: "https://casecraft-mba.onrender.com/",
+    fileUrl: null,
     githubUrl: "https://github.com/Tanu019",
+    actionLabel: "Open Live App",
+    actionType: "live",
     metrics: [
       { label: "Data Pipeline", value: "Automated", note: "Real-time student skill scoring" },
       { label: "Skill Taxonomy", value: "30+ Vectors", note: "Spanning analytics, finance & strategy" },
@@ -171,48 +184,6 @@ export const projectsData = [
         { skill: "Financial Modeling", score: 80 },
         { skill: "Dashboard Design", score: 92 },
         { skill: "Executive Storytelling", score: 88 }
-      ]
-    }
-  },
-  {
-    id: "swiftkart-bi",
-    number: "05",
-    tag: "AI & BUSINESS INTELLIGENCE",
-    category: "AI Chatbot & SQL Assistant",
-    title: "SWIFTKART — BI ASSISTANT",
-    subtitle: "Translating plain English business questions into instant database queries and charts.",
-    shortDesc: "Built an intelligent business assistant that bridges non-technical business stakeholders and enterprise databases with auto-correcting SQL execution.",
-    tools: ["LLMs", "ChatGPT", "Antigravity IDE", "SQL", "Data Viz"],
-    featured: false,
-    accentColor: "#A8BED0",
-    highlightBadge: "NATURAL LANGUAGE TO SQL",
-    liveUrl: null,
-    githubUrl: "https://github.com/Tanu019",
-    metrics: [
-      { label: "Query Accuracy", value: "96.5%", note: "With auto-healing syntax correction" },
-      { label: "Time-to-Insight", value: "Instant", note: "From question to visual chart" },
-      { label: "Format Support", value: "3 Modes", note: "Direct text, data tables, and dynamic charts" }
-    ],
-    overview: {
-      problem: "Business managers routinely wait hours or days for data analytics teams to write custom SQL queries and generate simple executive reports.",
-      approach: "Developed an AI chatbot interface powered by LLMs that parses business intent, generates schema-compliant SQL, executes queries, and outputs tabular and chart visualizations.",
-      findings: [
-        "Natural language query generation reduced ad-hoc reporting requests to engineering by 70%.",
-        "Interactive chart auto-selection based on query result data types delivered immediate executive clarity."
-      ],
-      recommendations: [
-        "Implement role-based access control (RBAC) to ensure secure query limits on sensitive financial tables.",
-        "Add one-click export to Excel and PDF executive summaries."
-      ]
-    },
-    visualData: {
-      type: "chart",
-      chartTitle: "Ad-Hoc Request Volume Before vs After BI Assistant",
-      dataPoints: [
-        { label: "Week 1", value: 95, margin: 10 },
-        { label: "Week 2", value: 72, margin: 35 },
-        { label: "Week 3", value: 45, margin: 68 },
-        { label: "Week 4", value: 24, margin: 88 }
       ]
     }
   }

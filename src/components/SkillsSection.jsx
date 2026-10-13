@@ -1,106 +1,101 @@
 import React from 'react';
-import { Sparkles, Database, BarChart3, Calculator, BriefcaseBusiness, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ShoppingBag, Calculator, Database, BarChart3 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { skillsData } from '../data/projectsData';
 
 export default function SkillsSection() {
-  const categoryIcons = {
-    data: Database,
-    visualization: BarChart3,
-    finance: Calculator,
-    business: BriefcaseBusiness,
-  };
-
-  const categoryList = Object.entries(skillsData);
+  const services = [
+    {
+      id: '01',
+      title: 'Retail Analytics & Unit Economics',
+      icon: ShoppingBag,
+      desc: 'I analyze grocery point-of-sale datasets, calculate SKU velocity, and optimize discount elasticity to protect gross margins.',
+      highlight: '1.2M+ rows cleaned & modeled'
+    },
+    {
+      id: '02',
+      title: '5-Year DCF Financial Valuation',
+      icon: Calculator,
+      desc: 'I build institutional-grade Discounted Cash Flow models, terminal multiple sensitivity matrices, and dark store breakeven roadmaps.',
+      highlight: 'Terminal growth & WACC scenarios'
+    },
+    {
+      id: '03',
+      title: 'Advanced SQL & Data Engineering',
+      icon: Database,
+      desc: 'I write complex window functions, recursive CTEs, and schema-compliant relational queries across PostgreSQL and Snowflake.',
+      highlight: 'Sub-second reporting queries'
+    },
+    {
+      id: '04',
+      title: 'Executive Dashboards & BI Architecture',
+      icon: BarChart3,
+      desc: 'I design distraction-free C-suite scorecards in Tableau and Power BI that turn massive transaction logs into immediate strategic clarity.',
+      highlight: 'Tableau, Power BI, DAX & Excel'
+    },
+  ];
 
   return (
-    <section id="skills" className="py-24 bg-[#0A0F16] text-[#F1F5F9] relative pearl-grid border-b border-[#223245]">
+    <section id="services" className="py-12 sm:py-16 bg-[#F1F5F9]/60 dark:bg-[#0B0E17] text-slate-900 dark:text-white relative border-t border-slate-200 dark:border-[#1E2536] transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#223245] gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#111923] text-sky-300 rounded-md font-mono text-xs font-bold uppercase mb-3 border border-sky-500/30 shadow-md">
-              <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-              <span>CORE COMPETENCY MATRIX</span>
-            </div>
-            <h2 className="font-grotesk font-extrabold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-none">
-              TOOLS OF <br className="hidden sm:inline" />
-              <span className="text-sky-400 underline decoration-sky-500 decoration-4 underline-offset-8">
-                THE TRADE.
-              </span>
-            </h2>
-          </div>
-
-          <p className="font-sans text-base sm:text-lg text-slate-300 max-w-md font-normal md:text-right">
-            Curated analytical and strategic capabilities backed by hands-on execution and commercial rigor.
+        
+        {/* Centered Header */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <span className="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1.5">
+            Core Capabilities
+          </span>
+          <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight mb-3">
+            What do I help
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+            Bridging commercial hypotheses with empirical transaction data, quantitative financial modeling, and executive decision-making.
           </p>
         </div>
 
-        {/* 4 Category Compact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categoryList.map(([key, cat], idx) => {
-            const Icon = categoryIcons[key] || Database;
+        {/* Wide Horizontal Service Cards */}
+        <div className="space-y-4 max-w-5xl mx-auto">
+          {services.map((service, idx) => {
+            const Icon = service.icon;
             return (
               <motion.div
-                key={key}
+                key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="bg-[#111923] rounded-2xl border border-[#223245] p-6 shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white hover:bg-slate-50 dark:bg-[#111522] dark:hover:bg-[#161B2B] rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-[#1E2536] hover:border-emerald-500/60 dark:hover:border-emerald-500/60 p-6 sm:p-8 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer shadow-xs hover:shadow-xl hover:shadow-emerald-950/20"
               >
-                <div>
-                  {/* Category Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-[#223245] mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-10 h-10 rounded-xl bg-[#0A0F16] text-sky-400 flex items-center justify-center border border-[#223245] shadow-sm">
-                        <Icon className="w-5 h-5 text-sky-400" />
-                      </div>
-                      <span className="font-mono text-xs font-extrabold text-white uppercase tracking-wider">
-                        {cat.category}
-                      </span>
-                    </div>
-                    <span className="font-mono text-xs text-slate-400 font-bold">0{idx + 1}</span>
+                {/* Left: Icon & Service Title */}
+                <div className="flex items-center gap-5 min-w-[280px]">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-900/40 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all shadow-xs">
+                    <Icon className="w-5 h-5" />
                   </div>
-
-                  <h3 className="font-grotesk font-extrabold text-xl text-white mb-4">
-                    {cat.title}
-                  </h3>
-
-                  {/* Skills List */}
-                  <div className="space-y-3">
-                    {cat.skills.map((skill, sIdx) => (
-                      <div
-                        key={sIdx}
-                        className="p-3 bg-[#0A0F16] rounded-xl border border-[#223245] hover:border-sky-400 hover:bg-[#182332] transition-all group"
-                      >
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-grotesk font-bold text-sm text-white group-hover:text-sky-300 transition-colors">
-                            {skill.name}
-                          </span>
-                          <span className="font-mono text-[10px] uppercase font-extrabold text-sky-300 px-2 py-0.5 bg-[#111923] rounded border border-sky-500/30">
-                            {skill.level}
-                          </span>
-                        </div>
-                        <p className="font-sans text-xs text-slate-300 leading-snug font-normal">
-                          {skill.desc}
-                        </p>
-                      </div>
-                    ))}
+                  <div>
+                    <h3 className="font-grotesk font-bold text-lg sm:text-xl text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                      {service.title}
+                    </h3>
+                    <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                      {service.highlight}
+                    </span>
                   </div>
                 </div>
 
-                {/* Bottom Verification Seal */}
-                <div className="pt-4 mt-4 border-t border-[#223245] flex items-center justify-between text-xs font-mono font-bold text-slate-300">
-                  <span>Applied in Projects</span>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                {/* Center: Detailed Description */}
+                <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg font-normal">
+                  {service.desc}
+                </p>
+
+                {/* Right: Arrow Icon */}
+                <div className="shrink-0 flex items-center justify-end">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 group-hover:bg-emerald-600 border border-slate-200 group-hover:border-emerald-600 flex items-center justify-center text-slate-500 group-hover:text-white dark:bg-[#0B0E17] dark:group-hover:bg-emerald-600 dark:border-[#1E2536] dark:group-hover:border-emerald-600 dark:text-slate-400 dark:group-hover:text-white transition-all shadow-xs">
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
 }
-
