@@ -34,7 +34,7 @@ export default function ProjectModal({ project, onClose }) {
         {/* Modal Top Bar */}
         <div className="bg-slate-100 dark:bg-[#0A0F16] px-6 py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-slate-950 uppercase bg-white text-slate-950 px-3 py-1 rounded-md font-bold">
+            <span className="font-mono text-xs uppercase bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 px-3 py-1 rounded-md font-bold">
               Case Study 0{project.number}
             </span>
             <span className="font-grotesk font-semibold text-sm tracking-wide text-slate-700 dark:text-slate-200 hidden sm:inline">
@@ -58,10 +58,16 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.liveUrl}
                 target={project.liveUrl.startsWith('#') ? '_self' : '_blank'}
                 rel="noreferrer"
-                onClick={() => {
-                  if (project.liveUrl.startsWith('#')) onClose();
+                onClick={(e) => {
+                  if (project.liveUrl.startsWith('#')) {
+                    e.preventDefault();
+                    onClose();
+                    setTimeout(() => {
+                      document.getElementById('sandbox')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
+                  }
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white text-slate-950 hover:bg-emerald-400 text-slate-950 rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
               >
                 <span>{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : 'Live Demo'}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -307,7 +313,7 @@ export default function ProjectModal({ project, onClose }) {
                         </div>
                         <div className="w-full h-3.5 bg-slate-200 dark:bg-[#111923] rounded-full overflow-hidden flex border border-slate-200 dark:border-slate-800">
                           <div
-                            className="bg-white text-slate-950 h-full rounded-l"
+                            className="bg-slate-700 dark:bg-slate-300 h-full rounded-l"
                             style={{ width: `${dp.value}%` }}
                           />
                           <div
@@ -370,7 +376,7 @@ export default function ProjectModal({ project, onClose }) {
                       <span className="font-sans text-xs font-medium text-slate-600 dark:text-slate-300 block">{dp.skill}</span>
                       <span className="font-grotesk font-extrabold text-2xl text-emerald-600 dark:text-emerald-400">{dp.score}%</span>
                       <div className="w-full bg-slate-200 dark:bg-[#0A0F16] h-2 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800">
-                        <div className="bg-white text-slate-950 h-full" style={{ width: `${dp.score}%` }} />
+                        <div className="bg-emerald-600 h-full" style={{ width: `${dp.score}%` }} />
                       </div>
                     </div>
                   ))}
@@ -392,7 +398,7 @@ export default function ProjectModal({ project, onClose }) {
                     key={idx}
                     className="p-4 bg-white dark:bg-[#111923] rounded-xl border border-slate-200 dark:border-slate-800 flex items-start gap-3.5 shadow-xs"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white text-slate-950 text-slate-950 font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-mono text-xs font-bold flex items-center justify-center shrink-0">
                       0{idx + 1}
                     </div>
                     <div>
@@ -422,7 +428,7 @@ export default function ProjectModal({ project, onClose }) {
                     key={idx}
                     className="px-4 py-2.5 bg-white dark:bg-[#111923] rounded-xl border border-slate-200 dark:border-slate-800 font-sans text-xs font-semibold text-slate-800 dark:text-white flex items-center gap-2 shadow-xs"
                   >
-                    <Sparkles className="w-4 h-4 text-white text-slate-950" />
+                    <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span>{tool}</span>
                   </div>
                 ))}

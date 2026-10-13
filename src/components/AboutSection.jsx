@@ -172,16 +172,19 @@ export default function AboutSection({ onOpenResume }) {
                         {exp.role}
                       </h4>
                       <p className="font-sans text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                        {exp.organization} • {exp.period}
+                        {exp.company} • {exp.period}
                       </p>
                     </div>
-                    <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                      {exp.description}
-                    </p>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-800 dark:text-slate-200 font-sans font-semibold pt-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                      <span>{exp.impact}</span>
-                    </div>
+                    {exp.points && (
+                      <ul className="space-y-1.5 pt-1">
+                        {exp.points.map((pt, pIdx) => (
+                          <li key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>
@@ -205,7 +208,7 @@ export default function AboutSection({ onOpenResume }) {
 
               <div className="space-y-6">
                 {bioData.education.map((edu, idx) => (
-                  <div key={idx} className="space-y-2 border-l-2 border-slate-200 dark:border-[#1E2536] pl-4 py-1">
+                  <div key={idx} className="space-y-1.5 border-l-2 border-slate-200 dark:border-[#1E2536] pl-4 py-1">
                     <h4 className="font-grotesk font-bold text-base text-slate-900 dark:text-white">
                       {edu.degree}
                     </h4>
@@ -213,7 +216,7 @@ export default function AboutSection({ onOpenResume }) {
                       {edu.institution} • {edu.period}
                     </p>
                     <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                      {edu.focus}
+                      {edu.highlight || edu.focus}
                     </p>
                   </div>
                 ))}

@@ -123,10 +123,10 @@ export default function DecisionSandbox() {
         <div className="bg-white dark:bg-[#111522] rounded-3xl border border-slate-200 dark:border-[#1E2536] p-6 sm:p-10 shadow-xs dark:shadow-2xl">
           
           {/* Tab Selector Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-slate-100 dark:bg-[#08090C] rounded-full mb-8 border border-slate-200 dark:border-[#1E2536] max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-slate-100 dark:bg-[#08090C] rounded-2xl sm:rounded-full mb-8 border border-slate-200 dark:border-[#1E2536] max-w-2xl">
             <button
               onClick={() => setActiveTab('retail')}
-              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
+              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl sm:rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
                 activeTab === 'retail'
                   ? 'bg-emerald-600 text-white font-extrabold shadow-md shadow-emerald-600/30'
                   : 'text-slate-600 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400'
@@ -138,7 +138,7 @@ export default function DecisionSandbox() {
 
             <button
               onClick={() => setActiveTab('valuation')}
-              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
+              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl sm:rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
                 activeTab === 'valuation'
                   ? 'bg-emerald-600 text-white font-extrabold shadow-md shadow-emerald-600/30'
                   : 'text-slate-600 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400'
@@ -150,7 +150,7 @@ export default function DecisionSandbox() {
 
             <button
               onClick={() => setActiveTab('ai')}
-              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
+              className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl sm:rounded-full text-xs sm:text-sm font-sans font-bold transition-all ${
                 activeTab === 'ai'
                   ? 'bg-emerald-600 text-white font-extrabold shadow-md shadow-emerald-600/30'
                   : 'text-slate-600 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400'

@@ -3,6 +3,7 @@ import {
   Search, 
   FileText, 
   Mail, 
+  Phone,
   Linkedin, 
   Github, 
   ArrowRight, 
@@ -107,6 +108,17 @@ export default function CommandPalette({
       badge: 'Direct',
       action: () => {
         window.location.href = 'mailto:ctanu608@gmail.com?subject=Inquiry%20for%20Tanu%20Chaudhary';
+        onClose();
+      }
+    },
+    {
+      id: 'act-phone',
+      title: 'Call Tanu Chaudhary (+91 8931075330)',
+      category: 'Quick Action',
+      icon: Phone,
+      badge: 'Direct',
+      action: () => {
+        window.location.href = 'tel:+918931075330';
         onClose();
       }
     },

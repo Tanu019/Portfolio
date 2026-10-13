@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found | Tanu Chaudhary</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: #08090C;
+        color: #F8FAFC;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .logo-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #059669, #047857, #064E3B);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 800;
+        font-size: 1.15rem;
+        color: white;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      }
+      .hero {
+        max-width: 520px;
+        margin: auto;
+      }
+      .badge {
+        display: inline-block;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.35);
+        color: #34D399;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 6rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        margin-bottom: 1rem;
+      }
+      h1 span {
+        color: #10B981;
+      }
+      h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+      }
+      p {
+        color: #94A3B8;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.75rem;
+        background: #10B981;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+      }
+      .btn:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+      .footer {
+        color: #64748B;
+        font-size: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">
+        <div class="logo-circle">T</div>
+        <div style="text-align: left;">
+          <strong style="display: block; font-size: 1.1rem;">Tanu Chaudhary</strong>
+          <small style="color: #10B981; font-weight: 600;">Business Analyst</small>
+        </div>
+      </a>
+    </header>
+
+    <main class="hero">
+      <div class="badge">ERROR 404 • ROUTE UNRESOLVED</div>
+      <h1>4<span>0</span>4</h1>
+      <h2>Resource Not Found</h2>
+      <p>The page or analytical file you were looking for doesn't exist or has moved. Redirecting to the homepage in <span id="countdown" style="color: #10B981; font-weight: bold;">5</span> seconds...</p>
+      <a href="/" class="btn">Return to Portfolio →</a>
+    </main>
+
+    <footer class="footer">
+      © <script>document.write(new Date().getFullYear())</script> Tanu Chaudhary. Business Analyst Portfolio.
+    </footer>
+
+    <script>
+      let seconds = 5;
+      const counter = document.getElementById('countdown');
+      const timer = setInterval(() => {
+        seconds--;
+        if (counter) counter.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.href = '/';
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

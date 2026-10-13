@@ -45,9 +45,10 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Service', href: '#services' },
+    { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#work' },
     { name: 'Sandbox', href: '#sandbox' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (

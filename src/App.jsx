@@ -10,11 +10,30 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
 import CommandPalette from './components/CommandPalette';
+import NotFound from './components/NotFound';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [selectedModalProject, setSelectedModalProject] = useState(null);
+
+  // 404 Route Detection
+  const [isNotFound, setIsNotFound] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      return path !== '/' && path !== '' && !path.endsWith('/index.html');
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      setIsNotFound(path !== '/' && path !== '' && !path.endsWith('/index.html'));
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Theme state: defaults to dark matching Titanium aesthetic
   const [theme, setTheme] = useState(() => {
@@ -71,8 +90,21 @@ export default function App() {
     }
   };
 
+  if (isNotFound) {
+    return (
+      <NotFound
+        onGoHome={() => {
+          window.history.pushState(null, '', '/');
+          setIsNotFound(false);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onOpenResume={() => setResumeOpen(true)}
+      />
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white font-sans selection:bg-emerald-600 selection:text-white transition-colors duration-200 relative">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white font-sans selection:bg-emerald-600 selection:text-white transition-colors duration-200 relative overflow-x-hidden max-w-full w-full">
       {/* Top Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 via-emerald-500 to-teal-400 z-50 origin-left"

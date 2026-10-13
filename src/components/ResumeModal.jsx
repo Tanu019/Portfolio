@@ -20,7 +20,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         {/* Modal Top Action Bar */}
         <div className="bg-slate-100 dark:bg-[#0A0F17] px-6 py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 shrink-0">
           <div className="flex items-center gap-2">
-            <span className="font-sans text-xs text-slate-950 uppercase bg-white text-slate-950 px-3 py-1 rounded-md font-bold">
+            <span className="font-sans text-xs uppercase bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 px-3 py-1 rounded-md font-bold">
               Official Resume
             </span>
             <span className="font-grotesk font-semibold text-sm tracking-wide text-slate-700 dark:text-slate-200 hidden sm:inline">
@@ -31,9 +31,9 @@ export default function ResumeModal({ isOpen, onClose }) {
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white text-slate-950 hover:bg-emerald-400 text-slate-950 rounded-xl font-sans text-xs font-bold transition-all shadow-xs"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-sans text-xs font-bold transition-all shadow-xs"
             >
-              <Printer className="w-3.5 h-3.5" />
+              <Printer className="w-3.5 h-3.5 text-white" />
               <span>Print / Save PDF</span>
             </button>
             <button
@@ -68,12 +68,20 @@ export default function ResumeModal({ isOpen, onClose }) {
               </div>
 
               <div className="flex flex-col sm:items-end text-xs font-sans text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                <a href={`mailto:${bioData.email}`} className="flex items-center gap-1.5 hover:text-emerald-600 dark:hover:text-emerald-300">
+                <a 
+                  href={`mailto:${bioData.email}`} 
+                  className="flex items-center gap-1.5 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors"
+                  title="Send email to Tanu"
+                >
                   <Mail className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 print:text-black" /> {bioData.email}
                 </a>
-                <span className="flex items-center gap-1.5">
+                <a 
+                  href={`tel:${bioData.phone.replace(/\s+/g, '')}`} 
+                  className="flex items-center gap-1.5 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors font-medium"
+                  title="Call Tanu"
+                >
                   <Phone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 print:text-black" /> {bioData.phone}
-                </span>
+                </a>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 print:text-black" /> Ambedkar Nagar, UP, India
                 </span>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Mail, 
+  Phone,
   Linkedin, 
   Github, 
   ArrowUpRight, 
@@ -133,9 +134,17 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
                 <a
                   href="mailto:ctanu608@gmail.com"
                   className="w-8 h-8 rounded-full bg-white dark:bg-[#111522] hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center justify-center transition-all shadow-xs"
-                  title="Email"
+                  title="Direct Email (ctanu608@gmail.com)"
                 >
                   <Mail className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href="tel:+918931075330"
+                  className="w-8 h-8 rounded-full bg-white dark:bg-[#111522] hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center justify-center transition-all shadow-xs"
+                  title="Direct Phone (+91 8931075330)"
+                >
+                  <Phone className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

@@ -55,6 +55,7 @@ export default function SkillsSection() {
         <div className="space-y-4 max-w-5xl mx-auto">
           {services.map((service, idx) => {
             const Icon = service.icon;
+            const targetId = service.id === '01' || service.id === '02' ? 'sandbox' : 'work';
             return (
               <motion.div
                 key={service.id}
@@ -62,6 +63,16 @@ export default function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
+                onClick={() => {
+                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="group bg-white hover:bg-slate-50 dark:bg-[#111522] dark:hover:bg-[#161B2B] rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-[#1E2536] hover:border-emerald-500/60 dark:hover:border-emerald-500/60 p-6 sm:p-8 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer shadow-xs hover:shadow-xl hover:shadow-emerald-950/20"
               >
                 {/* Left: Icon & Service Title */}
