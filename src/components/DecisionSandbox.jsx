@@ -247,7 +247,7 @@ export default function DecisionSandbox() {
                     {calculatedRetail.bars.map((val, idx) => (
                       <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
                         <div
-                          className="w-full bg-gradient-to-t from-emerald-700 via-emerald-600 to-indigo-400 hover:from-emerald-600 hover:to-violet-300 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
+                          className="w-full bg-gradient-to-t from-amber-700 via-amber-600 to-amber-300 hover:from-amber-600 hover:to-amber-200 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
                           style={{ height: `${val}%` }}
                         >
                           <span className="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 font-mono text-xs font-bold bg-emerald-600 text-white px-1.5 py-0.5 rounded shadow pointer-events-none">
@@ -352,7 +352,7 @@ export default function DecisionSandbox() {
                     {calculatedDCF.bars.map((val, idx) => (
                       <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
                         <div
-                          className="w-full bg-gradient-to-t from-emerald-700 via-emerald-600 to-indigo-400 hover:from-emerald-600 hover:to-violet-300 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
+                          className="w-full bg-gradient-to-t from-amber-700 via-amber-600 to-amber-300 hover:from-amber-600 hover:to-amber-200 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
                           style={{ height: `${val}%` }}
                         >
                           <span className="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 font-mono text-xs font-bold bg-emerald-600 text-white px-1.5 py-0.5 rounded shadow pointer-events-none">
@@ -457,7 +457,7 @@ export default function DecisionSandbox() {
                     {calculatedAI.bars.map((val, idx) => (
                       <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
                         <div
-                          className="w-full bg-gradient-to-t from-emerald-700 via-emerald-600 to-indigo-400 hover:from-emerald-600 hover:to-violet-300 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
+                          className="w-full bg-gradient-to-t from-amber-700 via-amber-600 to-amber-300 hover:from-amber-600 hover:to-amber-200 rounded-t transition-all duration-300 relative group cursor-pointer shadow-xs"
                           style={{ height: `${val}%` }}
                         >
                           <span className="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 font-mono text-xs font-bold bg-emerald-600 text-white px-1.5 py-0.5 rounded shadow pointer-events-none">

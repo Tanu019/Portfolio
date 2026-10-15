@@ -12,7 +12,7 @@ export default function NotFound({ onGoHome, onOpenResume }) {
           onClick={onGoHome}
           className="flex items-center gap-3 focus:outline-none group cursor-pointer"
         >
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-950 text-white font-grotesk font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 via-amber-700 to-stone-900 text-white font-grotesk font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition-transform">
             T
           </div>
           <div className="flex flex-col text-left">
