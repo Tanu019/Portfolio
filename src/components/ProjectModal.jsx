@@ -57,7 +57,7 @@ export default function ProjectModal({ project, onClose }) {
               <a
                 href={project.liveUrl}
                 target={project.liveUrl.startsWith('#') ? '_self' : '_blank'}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={(e) => {
                   if (project.liveUrl.startsWith('#')) {
                     e.preventDefault();
@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }) {
                 }}
                 className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
               >
-                <span>{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : 'Live Demo'}</span>
+                <span>{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : (project.actionLabel || 'Live Demo')}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
@@ -77,7 +77,7 @@ export default function ProjectModal({ project, onClose }) {
               <a
                 href={project.githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white dark:bg-[#182332] hover:bg-slate-50 dark:hover:bg-[#223245] text-slate-800 dark:text-white rounded-lg font-sans text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 shadow-xs"
               >
                 <Github className="w-3.5 h-3.5" />
@@ -163,6 +163,34 @@ export default function ProjectModal({ project, onClose }) {
               {project.subtitle}
             </p>
 
+            {/* Genuine Live Screenshot Banner if available */}
+            {project.image && (
+              <div className="mt-5 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950">
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-xs">
+                  <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 font-semibold">
+                    Live Product Interface • {project.title}
+                  </span>
+                  {project.liveUrl && !project.liveUrl.startsWith('#') && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1 hover:underline"
+                    >
+                      <span>{project.actionLabel || 'Visit Platform'}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} live interface screenshot`} 
+                  className="w-full h-auto max-h-[380px] object-cover object-top"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
             {/* Direct Asset / Live Link Action Banner */}
             {project.fileUrl && (
               <div className="mt-4 p-4 bg-emerald-50 dark:bg-[#0A1613] rounded-2xl border border-emerald-200 dark:border-emerald-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -212,7 +240,7 @@ export default function ProjectModal({ project, onClose }) {
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-sans text-xs font-bold transition-all shadow-sm shadow-emerald-600/30"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  <span>Launch Live App</span>
+                  <span>{project.actionLabel || 'Launch Live App'}</span>
                 </a>
               </div>
             )}

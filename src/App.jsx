@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SkillsSection from './components/SkillsSection';
 import ProjectShowcase from './components/ProjectShowcase';
+import MindSaarSection from './components/MindSaarSection';
 import DecisionSandbox from './components/DecisionSandbox';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
@@ -134,6 +135,9 @@ export default function App() {
         onSelectProjectFromParent={(proj) => setSelectedModalProject(proj)}
         externalSelectedProject={selectedModalProject}
       />
+
+      {/* "Building with MindSaar" - Startup Section */}
+      <MindSaarSection />
 
       {/* Interactive Decision Sandbox */}
       <DecisionSandbox />

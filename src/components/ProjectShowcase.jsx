@@ -19,7 +19,7 @@ export default function ProjectShowcase({ onSelectProjectFromParent, externalSel
     if (filter === 'ALL') return true;
     if (filter === 'AI') return p.category.includes('AI') || p.category.includes('Healthcare');
     if (filter === 'FINANCE') return p.category.includes('Valuation') || p.category.includes('DCF');
-    if (filter === 'EDTECH') return p.category.includes('EdTech') || p.category.includes('Analytics');
+    if (filter === 'EDTECH') return p.category.includes('EdTech') || p.category.includes('Analytics') || p.category.includes('Simulation');
     return true;
   });
 
@@ -79,9 +79,22 @@ export default function ProjectShowcase({ onSelectProjectFromParent, externalSel
                   {/* Preview Box */}
                   <div className="w-full h-52 rounded-2xl bg-gradient-to-br from-emerald-50/50 via-slate-50 to-slate-100 border border-slate-200 dark:from-[#0E1F1A] dark:via-[#0A1613] dark:to-[#111522] dark:border-[#1E2536] p-5 flex flex-col justify-between relative overflow-hidden mb-5 group-hover:border-emerald-500/40 transition-colors">
                     
+                    {/* Background Genuine Screenshot if available */}
+                    {project.image && (
+                      <div className="absolute inset-0 z-0 overflow-hidden">
+                        <img 
+                          src={project.image} 
+                          alt={`${project.title} live interface preview`}
+                          className="w-full h-full object-cover object-top opacity-35 dark:opacity-30 group-hover:opacity-55 dark:group-hover:opacity-45 group-hover:scale-105 transition-all duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40 dark:from-[#111522] dark:via-[#111522]/85 dark:to-transparent pointer-events-none" />
+                      </div>
+                    )}
+
                     {/* Top row inside preview */}
                     <div className="flex items-center justify-between z-10">
-                      <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50/80 border border-emerald-200 dark:text-emerald-300 dark:bg-emerald-950/60 dark:border-emerald-900/50 px-3 py-1 rounded-full">
+                      <span className="font-mono text-[11px] font-bold text-emerald-700 bg-emerald-50/90 border border-emerald-200 dark:text-emerald-300 dark:bg-emerald-950/70 dark:border-emerald-900/60 px-3 py-1 rounded-full backdrop-blur-xs">
                         {project.category}
                       </span>
 
@@ -129,28 +142,57 @@ export default function ProjectShowcase({ onSelectProjectFromParent, externalSel
                     </div>
 
                     {/* Bottom metric callout */}
-                    <div className="flex items-center justify-between text-[11px] font-sans font-semibold text-slate-500 dark:text-slate-400 z-10">
+                    <div className="flex items-center justify-between text-[11px] font-sans font-semibold text-slate-600 dark:text-slate-300 z-10 bg-white/70 dark:bg-slate-900/60 px-2 py-0.5 rounded backdrop-blur-xs">
                       <span>Verified Output</span>
-                      <span className="text-slate-700 dark:text-slate-300">{project.tools[0]} • {project.tools[1]}</span>
+                      <span className="text-slate-800 dark:text-slate-200">{project.tools[0]} • {project.tools[1]}</span>
                     </div>
 
                     {/* Subtle corner emerald light */}
                     <div className="absolute -bottom-8 -right-8 w-28 h-28 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-xl pointer-events-none" />
                   </div>
 
-                  {/* Category Subtitle */}
-                  <span className="font-sans text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1">
-                    {project.category}
-                  </span>
+                  {/* Header Row: Category & Optional MindSaar Badge */}
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="font-sans text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                    {project.badgeLabel && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-300/80 dark:border-amber-800/80 uppercase">
+                        {project.badgeLabel}
+                      </span>
+                    )}
+                  </div>
 
                   {/* Project Title */}
-                  <h3 className="font-grotesk font-extrabold text-xl text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <h3 className="font-grotesk font-extrabold text-xl text-slate-900 dark:text-white mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {project.title}
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4 font-normal">
+                  {/* Tagline / Subtitle */}
+                  {project.subtitle && (
+                    <p className="font-grotesk font-bold text-xs text-amber-700 dark:text-amber-400 mb-2 tracking-wide">
+                      {project.subtitle}
+                    </p>
+                  )}
+
+                  {/* Short Description */}
+                  <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3 mb-3 font-normal">
                     {project.shortDesc}
                   </p>
+
+                  {/* Feature Tags */}
+                  {project.featureTags && (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.featureTags.slice(0, 4).map((tag, tIdx) => (
+                        <span 
+                          key={tIdx} 
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 dark:bg-[#182030] text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Bottom Row: Key Metric Badge & Direct Link/File CTA */}
@@ -180,8 +222,8 @@ export default function ProjectShowcase({ onSelectProjectFromParent, externalSel
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="font-sans text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 rounded-full shadow-xs flex items-center gap-1.5 transition-all"
-                        title="Open Live Application"
+                        className="font-sans text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3.5 py-1.5 rounded-full shadow-xs flex items-center gap-1.5 transition-all hover:scale-[1.02]"
+                        title={project.actionLabel || "Open Live Application"}
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>{project.actionLabel || 'Live App'}</span>

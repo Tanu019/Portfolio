@@ -1,7 +1,58 @@
 export const projectsData = [
   {
-    id: "cancer-sakhi",
+    id: "case-craft",
     number: "01",
+    tag: "A MINDSAAR PRODUCT",
+    badgeLabel: "A MindSaar Product",
+    category: "EdTech & Business Simulation",
+    title: "Case Craft",
+    subtitle: "Learn. Analyse. Decide.",
+    tagline: "Learn. Analyse. Decide.",
+    shortDesc: "Case Craft is a business case study platform focused on structured thinking, business analysis, and practical problem-solving. It helps learners explore business challenges, develop analytical thinking, and approach decisions with greater clarity.",
+    featureTags: ["Business Simulation", "Structured Thinking", "Case Studies", "Quantitative Analysis", "Decision Science"],
+    tools: ["Interactive Case Engine", "Scenario Branching", "Supabase", "React", "Real-Time Scoring"],
+    featured: true,
+    accentColor: "#DEC396",
+    highlightBadge: "A MINDSAAR PRODUCT",
+    liveUrl: "https://casecraft-mba.onrender.com/",
+    fileUrl: null,
+    githubUrl: "https://github.com/Tanu019",
+    actionLabel: "Explore Case Craft",
+    actionType: "live",
+    image: "/images/casecraft/casecraft-preview.png",
+    brandMark: "/images/casecraft/brand-mark.png",
+    metrics: [
+      { label: "Case Library", value: "72+ Cases", note: "Spanning 12 corporate specializations" },
+      { label: "Pedagogy", value: "Multi-Stage", note: "Simulated scenario branching & real feedback" },
+      { label: "Core Pillars", value: "3 Modes", note: "Learn. Analyse. Decide." }
+    ],
+    overview: {
+      problem: "Learners and early-career business professionals frequently struggle to connect theoretical management frameworks with realistic, high-stakes corporate trade-offs and quantitative problem-solving.",
+      approach: "Engineered an interactive MBA case simulation platform where learners analyze realistic scenarios, evaluate financial and operational constraints, and make data-backed executive decisions.",
+      findings: [
+        "Multi-stage scenario branching increased critical thinking engagement and user session duration by over 60%.",
+        "Structured decision checkpoints with instant feedback helped users identify blind spots in cash flow and strategic trade-offs.",
+        "Scenario analytics provide actionable competency scoring across finance, operations, and leadership vectors."
+      ],
+      recommendations: [
+        "Introduce collaborative cohort study rooms for synchronized multi-student case competitions.",
+        "Expand automated evaluation rubrics for unstructured qualitative rationale answers.",
+        "Deepen industry benchmark integrations with live market datasets for realistic macroeconomic shifts."
+      ]
+    },
+    visualData: {
+      type: "flow",
+      chartTitle: "Case Craft Simulation & Decision Workflow",
+      steps: [
+        { title: "01 // Learn & Contextualize", desc: "Absorb deep case exhibits, market dynamics, operational constraints, and baseline financial sheets." },
+        { title: "02 // Analyse & Stress Test", desc: "Evaluate quantitative trade-offs, scenario models, and critical business variables under uncertainty." },
+        { title: "03 // Decide & Benchmark", desc: "Execute strategic choices and receive instant rubric-backed analytics on outcomes and competencies." }
+      ]
+    }
+  },
+  {
+    id: "cancer-sakhi",
+    number: "02",
     tag: "AI & SOCIAL IMPACT",
     category: "AI & Healthcare",
     title: "Cancer Sakhi",
@@ -47,7 +98,7 @@ export const projectsData = [
   },
   {
     id: "dcf-model-unlisted",
-    number: "02",
+    number: "03",
     tag: "FINANCIAL MODELING",
     category: "Valuation & DCF",
     title: "DCF Model of Unlisted Company",
@@ -95,7 +146,7 @@ export const projectsData = [
   },
   {
     id: "swiftkart-ai-assistant",
-    number: "03",
+    number: "04",
     tag: "AI & BUSINESS INTELLIGENCE",
     category: "AI Chatbot & SQL Assistant",
     title: "Swiftkart AI Assistant",
@@ -137,53 +188,6 @@ export const projectsData = [
         { label: "Week 2", value: 72, margin: 35 },
         { label: "Week 3", value: 45, margin: 68 },
         { label: "Week 4", value: 24, margin: 88 }
-      ]
-    }
-  },
-  {
-    id: "career-intelligence",
-    number: "04",
-    tag: "SYSTEM ARCHITECTURE",
-    category: "EdTech & Analytics",
-    title: "Career Intelligence",
-    subtitle: "CaseCraft MBA — Structured student career assessment and guidance intelligence system.",
-    shortDesc: "Designed data acquisition workflows, academic data structures in Supabase, and intuitive assessment dashboards for student analytics competency mapping.",
-    tools: ["Supabase", "React", "API Integration", "ChatGPT", "Analytics"],
-    featured: true,
-    accentColor: "#DEC396",
-    highlightBadge: "LIVE WEB APPLICATION",
-    liveUrl: "https://casecraft-mba.onrender.com/",
-    fileUrl: null,
-    githubUrl: "https://github.com/Tanu019",
-    actionLabel: "Open Live App",
-    actionType: "live",
-    metrics: [
-      { label: "Data Pipeline", value: "Automated", note: "Real-time student skill scoring" },
-      { label: "Skill Taxonomy", value: "30+ Vectors", note: "Spanning analytics, finance & strategy" },
-      { label: "User Feedback", value: "94% Positive", note: "On clarity of career path recommendations" }
-    ],
-    overview: {
-      problem: "Management and commerce graduates struggle to match their academic coursework and analytical proficiencies with evolving market job requirements.",
-      approach: "Structured end-to-end data schemas in Supabase, mapped skill competencies to industry job descriptions, and integrated real-time evaluation rubrics.",
-      findings: [
-        "Students frequently under-index on communicating practical tools (e.g., SQL/Power BI) compared to theoretical concepts.",
-        "Visual spider-web skill gap diagrams dramatically improved student motivation to complete targeted coursework.",
-        "Automated assessment workflows reduced counselor diagnostic time by 65%."
-      ],
-      recommendations: [
-        "Integrate live job market API feeds to dynamically update required competency weights.",
-        "Introduce modular micro-case studies tailored to student gap areas."
-      ]
-    },
-    visualData: {
-      type: "radar",
-      chartTitle: "Competency Mapping Vector",
-      dataPoints: [
-        { skill: "Business Acumen", score: 90 },
-        { skill: "Data Cleaning / SQL", score: 85 },
-        { skill: "Financial Modeling", score: 80 },
-        { skill: "Dashboard Design", score: 92 },
-        { skill: "Executive Storytelling", score: 88 }
       ]
     }
   }
