@@ -40,12 +40,12 @@ export default function MindSaarSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.01 }}
           transition={{ duration: 0.45 }}
-          className="bg-white dark:bg-[#111522] rounded-3xl border border-slate-200 dark:border-[#1E2536] hover:border-amber-500/40 dark:hover:border-amber-400/30 p-6 sm:p-10 lg:p-12 shadow-sm dark:shadow-2xl transition-all duration-300 relative overflow-hidden"
+          className="bg-white dark:bg-[#111522] rounded-3xl border border-slate-200 dark:border-[#1E2536] hover:border-amber-500/40 dark:hover:border-amber-400/30 p-5 sm:p-8 lg:p-12 shadow-sm dark:shadow-2xl transition-all duration-300 relative overflow-hidden"
         >
           {/* Top Banner Accent */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-[#1E2536]">
-            <div className="flex items-center gap-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-300/80 dark:border-amber-800/80 uppercase">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8 pb-5 border-b border-slate-200 dark:border-[#1E2536]">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono font-bold tracking-wider text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-300/80 dark:border-amber-800/80 uppercase">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                 Building with MindSaar
               </span>
@@ -54,7 +54,7 @@ export default function MindSaarSection() {
               </span>
             </div>
 
-            <span className="font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-200/60 dark:border-emerald-900/40">
+            <span className="font-mono text-[11px] sm:text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-200/60 dark:border-emerald-900/40">
               Live Production
             </span>
           </div>
@@ -62,50 +62,27 @@ export default function MindSaarSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Heading, Subheading, Description, & CTAs */}
-            <div className="lg:col-span-7 space-y-5">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               <div>
                 <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
                   MindSaar
                 </h2>
-                <p className="font-grotesk font-bold text-lg sm:text-xl text-amber-700 dark:text-amber-400 mt-2">
+                <p className="font-grotesk font-bold text-base sm:text-xl text-amber-700 dark:text-amber-400 mt-1.5 sm:mt-2">
                   From business problems to practical digital products.
                 </p>
               </div>
 
-              <p className="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+              <p className="font-sans text-xs sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 MindSaar is my startup, where I develop digital products shaped by business needs, structured thinking, and technology. Through products such as Case Craft, I aim to make business learning and problem-solving more accessible and practical.
               </p>
 
-              {/* Startup Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                {startupPillars.map((pillar, idx) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div 
-                      key={idx} 
-                      className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#0A0F16] border border-slate-200/80 dark:border-[#1E2536] space-y-1.5"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-amber-500/10 dark:bg-amber-400/10 flex items-center justify-center text-amber-700 dark:text-amber-300">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <h4 className="font-grotesk font-bold text-xs text-slate-900 dark:text-white">
-                        {pillar.title}
-                      </h4>
-                      <p className="font-sans text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Action Buttons Row */}
-              <div className="flex flex-wrap items-center gap-3 pt-3">
+              {/* Action Buttons Row: Immediate tap-friendly targets on mobile */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                 <a
                   href={mindsaarUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-full transition-all shadow-md shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-full transition-all shadow-md shadow-emerald-600/30 hover:scale-[1.02] active:scale-[0.98]"
                   title="Explore MindSaar Website"
                 >
                   <span>Explore MindSaar</span>
@@ -116,27 +93,52 @@ export default function MindSaarSection() {
                   href={caseCraftUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-white dark:bg-[#182332] hover:bg-slate-50 dark:hover:bg-[#202E42] text-slate-800 dark:text-white font-sans font-bold text-xs uppercase tracking-wider rounded-full transition-all border border-slate-200 dark:border-[#1E2536] hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white dark:bg-[#182332] hover:bg-slate-50 dark:hover:bg-[#202E42] text-slate-800 dark:text-white font-sans font-bold text-xs uppercase tracking-wider rounded-full transition-all border border-slate-200 dark:border-[#1E2536] hover:scale-[1.02] active:scale-[0.98]"
                   title="Explore Case Craft MBA Platform"
                 >
                   <span>Explore Case Craft</span>
                   <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 </a>
               </div>
+
+              {/* Startup Pillars: Compact and responsive */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2">
+                {startupPillars.map((pillar, idx) => {
+                  const Icon = pillar.icon;
+                  return (
+                    <div 
+                      key={idx} 
+                      className="p-3 sm:p-3.5 rounded-2xl bg-slate-50 dark:bg-[#0A0F16] border border-slate-200/80 dark:border-[#1E2536] space-y-1"
+                    >
+                      <div className="flex items-center gap-2 sm:block sm:space-y-1.5">
+                        <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500/10 dark:bg-amber-400/10 flex items-center justify-center text-amber-700 dark:text-amber-300 shrink-0">
+                          <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        </div>
+                        <h4 className="font-grotesk font-bold text-xs text-slate-900 dark:text-white">
+                          {pillar.title}
+                        </h4>
+                      </div>
+                      <p className="font-sans text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
+                        {pillar.desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Right Column: Genuine Live Product Preview */}
             <div className="lg:col-span-5">
-              <div className="bg-slate-50 dark:bg-[#0A0F16] rounded-2xl border border-slate-200 dark:border-[#1E2536] p-4 sm:p-5 relative overflow-hidden group shadow-md">
+              <div className="bg-slate-50 dark:bg-[#0A0F16] rounded-2xl border border-slate-200 dark:border-[#1E2536] p-3.5 sm:p-5 relative overflow-hidden group shadow-md">
                 
                 {/* Mock Browser Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-[#1E2536]">
+                <div className="flex items-center justify-between pb-2.5 sm:pb-3 mb-2.5 sm:mb-3 border-b border-slate-200 dark:border-[#1E2536]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                   </div>
-                  <div className="font-mono text-[10px] text-slate-600 dark:text-slate-300 bg-white dark:bg-[#111522] px-3 py-0.5 rounded-full border border-slate-200 dark:border-[#1E2536] truncate max-w-[200px]">
+                  <div className="font-mono text-[9px] sm:text-[10px] text-slate-600 dark:text-slate-300 bg-white dark:bg-[#111522] px-2.5 sm:px-3 py-0.5 rounded-full border border-slate-200 dark:border-[#1E2536] truncate max-w-[170px] sm:max-w-[200px]">
                     https://mindsaar.onrender.com
                   </div>
                   <a 

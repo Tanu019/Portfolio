@@ -32,25 +32,26 @@ export default function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Bar */}
-        <div className="bg-slate-100 dark:bg-[#0A0F16] px-6 py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xs uppercase bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 px-3 py-1 rounded-md font-bold">
-              Case Study 0{project.number}
+        <div className="bg-slate-100 dark:bg-[#0A0F16] px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="font-mono text-[11px] sm:text-xs uppercase bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 px-2.5 sm:px-3 py-1 rounded-md font-bold">
+              Case 0{project.number}
             </span>
-            <span className="font-grotesk font-semibold text-sm tracking-wide text-slate-700 dark:text-slate-200 hidden sm:inline">
+            <span className="font-grotesk font-semibold text-xs sm:text-sm tracking-wide text-slate-700 dark:text-slate-200 hidden sm:inline truncate max-w-[200px]">
               {project.category}
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             {project.fileUrl && (
               <a
                 href={project.fileUrl}
                 download={project.fileName || true}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs shadow-emerald-600/30"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs shadow-emerald-600/30"
+                title={`Download ${project.fileName}`}
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>{project.actionLabel || 'Download'}</span>
+                <span className="hidden sm:inline">{project.actionLabel || 'Download'}</span>
               </a>
             )}
             {project.liveUrl && (
@@ -67,9 +68,11 @@ export default function ProjectModal({ project, onClose }) {
                     }, 50);
                   }
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
+                title={project.actionLabel || "Live Demo"}
               >
-                <span>{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : (project.actionLabel || 'Live Demo')}</span>
+                <span className="hidden sm:inline">{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : (project.actionLabel || 'Live Demo')}</span>
+                <span className="sm:hidden">{project.actionLabel ? 'App' : 'Demo'}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
@@ -78,7 +81,8 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-white dark:bg-[#182332] hover:bg-slate-50 dark:hover:bg-[#223245] text-slate-800 dark:text-white rounded-lg font-sans text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 shadow-xs"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 bg-white dark:bg-[#182332] hover:bg-slate-50 dark:hover:bg-[#223245] text-slate-800 dark:text-white rounded-lg font-sans text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 shadow-xs"
+                title="View GitHub Repository"
               >
                 <Github className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">GitHub</span>
@@ -86,65 +90,65 @@ export default function ProjectModal({ project, onClose }) {
             )}
             <button
               onClick={onClose}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-lg font-sans text-xs font-bold transition-all"
+              className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-lg font-sans text-xs font-bold transition-all"
               aria-label="Close Case Study"
             >
-              <span>Close</span>
+              <span className="hidden sm:inline">Close</span>
               <X className="w-4 h-4" />
             </button>
           </div>
         </div>
 
         {/* Navigation Modal Sub-Tabs */}
-        <div className="bg-slate-50 dark:bg-[#0E1520] px-6 py-2.5 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2 overflow-x-auto text-xs font-sans font-semibold">
+        <div className="bg-slate-50 dark:bg-[#0E1520] px-4 sm:px-6 py-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-1.5 sm:gap-2 overflow-x-auto text-xs font-sans font-semibold scrollbar-none whitespace-nowrap">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
               activeTab === 'overview'
-                ? 'bg-white text-slate-950 shadow-sm font-bold'
+                ? 'bg-white dark:bg-[#182332] text-slate-950 dark:text-white shadow-xs font-bold'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-[#182332]'
             }`}
           >
-            <Compass className="w-4 h-4" />
-            <span>Executive Overview</span>
+            <Compass className="w-3.5 h-3.5" />
+            <span>Overview</span>
           </button>
           <button
             onClick={() => setActiveTab('visual')}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
               activeTab === 'visual'
-                ? 'bg-white text-slate-950 shadow-sm font-bold'
+                ? 'bg-white dark:bg-[#182332] text-slate-950 dark:text-white shadow-xs font-bold'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-[#182332]'
             }`}
           >
-            <LayoutDashboard className="w-4 h-4" />
-            <span>Dashboard Breakdown</span>
+            <LayoutDashboard className="w-3.5 h-3.5" />
+            <span>Breakdown</span>
           </button>
           <button
             onClick={() => setActiveTab('recommendations')}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
               activeTab === 'recommendations'
-                ? 'bg-white text-slate-950 shadow-sm font-bold'
+                ? 'bg-white dark:bg-[#182332] text-slate-950 dark:text-white shadow-xs font-bold'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-[#182332]'
             }`}
           >
-            <TrendingUp className="w-4 h-4" />
-            <span>Recommendations</span>
+            <TrendingUp className="w-3.5 h-3.5" />
+            <span>Actions</span>
           </button>
           <button
             onClick={() => setActiveTab('tech')}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
               activeTab === 'tech'
-                ? 'bg-white text-slate-950 shadow-sm font-bold'
+                ? 'bg-white dark:bg-[#182332] text-slate-950 dark:text-white shadow-xs font-bold'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-[#182332]'
             }`}
           >
-            <Code2 className="w-4 h-4" />
-            <span>Tools & Stack</span>
+            <Code2 className="w-3.5 h-3.5" />
+            <span>Tech Stack</span>
           </button>
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-8 bg-white dark:bg-[#111827]">
+        <div className="overflow-y-auto p-4 sm:p-8 space-y-6 sm:space-y-8 bg-white dark:bg-[#111827]">
           {/* Header Banner */}
           <div className="border-b border-slate-200 dark:border-slate-800 pb-6">
             <div className="flex flex-wrap items-center gap-2 mb-3">

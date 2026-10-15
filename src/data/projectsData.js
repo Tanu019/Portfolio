@@ -2,7 +2,7 @@ export const projectsData = [
   {
     id: "case-craft",
     number: "01",
-    tag: "A MINDSAAR PRODUCT",
+    tag: "EDTECH & SIMULATION",
     badgeLabel: "A MindSaar Product",
     category: "EdTech & Business Simulation",
     title: "Case Craft",

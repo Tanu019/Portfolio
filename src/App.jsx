@@ -36,6 +36,24 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Smooth scroll to hash anchor on mount or hashchange
+  useEffect(() => {
+    const scrollToHash = () => {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const id = window.location.hash.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+      }
+    };
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   // Theme state: defaults to dark matching Titanium aesthetic
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
