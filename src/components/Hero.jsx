@@ -101,7 +101,7 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
                 <Sparkles className="w-4 h-4" />
               </div>
               <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-                I translate complex grocery retail transactions, 5-year DCF valuation models, and SQL pipelines into profitable executive roadmaps.
+                I turn complex business data into actionable decisions using SQL, Advanced Excel, and interactive BI dashboards.
               </p>
             </div>
 

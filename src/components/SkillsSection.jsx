@@ -1,36 +1,36 @@
 import React from 'react';
-import { ArrowUpRight, ShoppingBag, Calculator, Database, BarChart3 } from 'lucide-react';
+import { ArrowUpRight, FileSpreadsheet, BarChart3, Database, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function SkillsSection() {
   const services = [
     {
       id: '01',
-      title: 'Retail Analytics & Unit Economics',
-      icon: ShoppingBag,
-      desc: 'I analyze grocery point-of-sale datasets, calculate SKU velocity, and optimize discount elasticity to protect gross margins.',
-      highlight: '1.2M+ rows cleaned & modeled'
+      title: 'Data Cleaning & Exploratory Analysis',
+      icon: FileSpreadsheet,
+      desc: 'I clean, transform, and structure raw business datasets using Advanced Excel (VLOOKUP, INDEX/MATCH, Pivots) and Python to extract meaningful operational trends.',
+      highlight: 'Advanced Excel, Pivot Tables & EDA'
     },
     {
       id: '02',
-      title: '5-Year DCF Financial Valuation',
-      icon: Calculator,
-      desc: 'I build institutional-grade Discounted Cash Flow models, terminal multiple sensitivity matrices, and dark store breakeven roadmaps.',
-      highlight: 'Terminal growth & WACC scenarios'
+      title: 'Interactive Dashboards & KPI Tracking',
+      icon: BarChart3,
+      desc: 'I build intuitive, interactive dashboards and executive scorecards in Power BI and Tableau that translate complex transaction records into real-time business visibility.',
+      highlight: 'Power BI (DAX), Tableau & Visuals'
     },
     {
       id: '03',
-      title: 'Advanced SQL & Data Engineering',
+      title: 'SQL Analytics & Data Extraction',
       icon: Database,
-      desc: 'I write complex window functions, recursive CTEs, and schema-compliant relational queries across PostgreSQL and Snowflake.',
-      highlight: 'Sub-second reporting queries'
+      desc: 'I write multi-table joins, aggregations, and structured queries to extract, filter, and prepare relational business data for fast stakeholder reporting.',
+      highlight: 'Joins, Aggregations & Subqueries'
     },
     {
       id: '04',
-      title: 'Executive Dashboards & BI Architecture',
-      icon: BarChart3,
-      desc: 'I design distraction-free C-suite scorecards in Tableau and Power BI that turn massive transaction logs into immediate strategic clarity.',
-      highlight: 'Tableau, Power BI, DAX & Excel'
+      title: 'Business Requirements & Market Research',
+      icon: Briefcase,
+      desc: 'I translate stakeholder business problems into actionable requirements, evaluate market trends, and coordinate feature priorities using Agile sprint methods.',
+      highlight: 'Agile Frameworks & Competitor Analysis'
     },
   ];
 
@@ -44,10 +44,10 @@ export default function SkillsSection() {
             Core Capabilities
           </span>
           <h2 className="font-grotesk font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight mb-3">
-            What do I help
+            What I Bring to the Table
           </h2>
           <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
-            Bridging commercial hypotheses with empirical transaction data, quantitative financial modeling, and executive decision-making.
+            Bridging business needs with data-driven insights through exploratory data analysis, SQL querying, KPI dashboarding, and Agile problem-solving.
           </p>
         </div>
 
