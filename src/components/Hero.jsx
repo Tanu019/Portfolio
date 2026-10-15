@@ -31,9 +31,10 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
   }, []);
 
   const stats = [
-    { number: '1.2M+', label: 'Data Rows Analyzed' },
-    { number: '100%', label: 'Analytical Rigor' },
-    { number: '4', label: 'Flagship Projects' },
+    { number: '4+', label: 'Projects Completed' },
+    { number: '14+', label: 'Insights Generated' },
+    { number: '15+', label: 'Tools & Technologies' },
+    { number: '8+', label: 'Certifications' },
   ];
 
   return (
@@ -189,23 +190,28 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
             </div>
           </motion.div>
 
-          {/* Right Column: Stacked Stats */}
+          {/* Right Column: 2x2 Metric Cards matching Image 1 */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.15 }}
-            className="lg:col-span-3 flex flex-row lg:flex-col justify-around lg:justify-center items-start lg:items-end gap-8 lg:gap-10"
+            className="lg:col-span-3 flex justify-center lg:justify-end w-full"
           >
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-left lg:text-right">
-                <span className="font-grotesk font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight block">
-                  {stat.number}
-                </span>
-                <span className="font-sans text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium block mt-1">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 gap-3 sm:gap-3.5 w-full max-w-[340px] sm:max-w-[360px] lg:max-w-none">
+              {stats.map((stat, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-white dark:bg-[#111522] rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-[#1E2536] shadow-xs flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-emerald-500/50 dark:hover:border-emerald-500/40 hover:shadow-md hover:-translate-y-0.5 group"
+                >
+                  <span className="font-grotesk font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    {stat.number}
+                  </span>
+                  <span className="font-sans text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1.5 leading-snug">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
         </div>
