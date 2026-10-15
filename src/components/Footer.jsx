@@ -61,13 +61,13 @@ export default function Footer({ onOpenResume }) {
                   Tanu Chaudhary
                 </h4>
                 <p className="font-sans text-xs text-slate-500 dark:text-slate-400">
-                  Business Analytics • Financial Modeling • Data Strategy
+                  MBA in Business Analytics • SQL & Power BI • Financial Modeling
                 </p>
               </div>
             </a>
 
             <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm font-normal">
-              Translating unstructured point-of-sale datasets, discounted cash flow valuations, and enterprise queries into high-conviction business decisions.
+              I bridge business requirements with data, transforming complex transactional datasets, SQL queries, and BI dashboards into actionable business insights.
             </p>
 
             {/* Real-Time Status & IST Clock */}
@@ -79,7 +79,7 @@ export default function Footer({ onOpenResume }) {
 
               <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-full border border-emerald-200 dark:border-emerald-900/40 text-[11px] font-sans font-semibold shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse" />
-                <span>Open for Full-Time Roles</span>
+                <span>Open for Business Analyst Roles</span>
               </div>
             </div>
           </div>
