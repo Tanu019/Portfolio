@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0D9488"/>
-      <stop offset="100%" stop-color="#042F2E"/>
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="16" fill="#08090C"/>
@@ -10,5 +10,5 @@
   <!-- Bold Clean T Monogram -->
   <path d="M18 19 H46 V26 H36 V45 H28 V26 H18 Z" fill="#FFFFFF"/>
   <!-- Accent Mint Dot -->
-  <circle cx="45" cy="43" r="3.5" fill="#00E5C9"/>
+  <circle cx="45" cy="43" r="3.5" fill="#818CF8"/>
 </svg>

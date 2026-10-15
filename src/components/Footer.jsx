@@ -53,7 +53,7 @@ export default function Footer({ onOpenResume }) {
               className="inline-flex items-center gap-3 group cursor-pointer focus:outline-none"
               title="Return to top of page"
             >
-              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-900 text-white font-grotesk font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-950 text-white font-grotesk font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-600/30 group-hover:scale-105 transition-transform">
                 T
               </div>
               <div>

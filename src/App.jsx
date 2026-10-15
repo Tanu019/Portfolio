@@ -107,7 +107,7 @@ export default function App() {
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#08090C] text-slate-900 dark:text-white font-sans selection:bg-emerald-600 selection:text-white transition-colors duration-200 relative overflow-x-hidden max-w-full w-full">
       {/* Top Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 via-emerald-500 to-teal-400 z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-700 via-indigo-500 to-violet-400 z-50 origin-left"
         style={{ scaleX }}
       />
 

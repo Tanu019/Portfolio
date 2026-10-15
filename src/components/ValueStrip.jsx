@@ -5,7 +5,7 @@ export default function ValueStrip() {
   const statements = [
     { text: "1.2M+ Rows Analyzed", icon: Database, accent: "text-emerald-600 dark:text-emerald-400" },
     { text: "+₹4.2L Profit Recovered", icon: TrendingUp, accent: "text-emerald-600 dark:text-emerald-400" },
-    { text: "5-Year DCF Financial Modeling", icon: FileSpreadsheet, accent: "text-teal-600 dark:text-teal-400" },
+    { text: "Exploratory Data Analysis & Modeling", icon: FileSpreadsheet, accent: "text-emerald-600 dark:text-emerald-400" },
     { text: "Tableau & Power BI Scorecards", icon: BarChart2, accent: "text-emerald-600 dark:text-emerald-400" },
     { text: "Unit Economics & Margin Velocity", icon: Target, accent: "text-emerald-600 dark:text-emerald-400" },
     { text: "Open to Full-Time Roles", icon: Zap, accent: "text-emerald-500" },
