@@ -111,9 +111,11 @@ export default function Footer({ onOpenResume }) {
             </h5>
             <div className="space-y-2.5 font-sans text-xs sm:text-sm">
               <a
-                href={`mailto:${bioData.email}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(bioData.email)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-slate-600 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
-                title="Email Tanu Chaudhary"
+                title="Email Tanu Chaudhary via Gmail"
               >
                 <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span className="truncate">{bioData.email}</span>

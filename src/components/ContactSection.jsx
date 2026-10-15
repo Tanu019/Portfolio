@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Linkedin, Github, ArrowUpRight, Copy, Check, Send, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, ArrowUpRight, Copy, Check, Send, MapPin, AlertCircle, CheckCircle2, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { bioData } from '../data/projectsData';
 
@@ -9,6 +9,7 @@ export default function ContactSection({ onOpenResume }) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [lastUrls, setLastUrls] = useState({ gmail: '', mailto: '' });
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
@@ -51,20 +52,43 @@ export default function ContactSection({ onOpenResume }) {
     return Object.keys(newErrors).length === 0;
   };
 
+  const buildEmailDraft = () => {
+    const subject = `Inquiry for Tanu Chaudhary from ${formData.name.trim()}`;
+    const body = `Hi Tanu,\n\n${formData.message.trim()}\n\n---\nSender Details:\nName: ${formData.name.trim()}\nEmail: ${formData.email.trim()}`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(bioData.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:${bioData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    return { gmailUrl, mailtoUrl };
+  };
+
   const handleQuickSend = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (!validateForm()) return;
 
-    const subject = encodeURIComponent(`Inquiry for Tanu Chaudhary from ${formData.name}`);
-    const body = encodeURIComponent(`Hi Tanu,\n\n${formData.message}\n\nFrom: ${formData.name} (${formData.email})`);
-    window.location.href = `mailto:${bioData.email}?subject=${subject}&body=${body}`;
+    const { gmailUrl, mailtoUrl } = buildEmailDraft();
+    setLastUrls({ gmail: gmailUrl, mailto: mailtoUrl });
+
+    // Open Gmail compose directly in a new tab
+    const newWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      window.location.href = gmailUrl;
+    }
 
     setSubmitted(true);
     setErrors({});
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 6000);
+  };
+
+  const handleMailtoSend = (e) => {
+    if (e) e.preventDefault();
+    if (!validateForm()) return;
+
+    const { gmailUrl, mailtoUrl } = buildEmailDraft();
+    setLastUrls({ gmail: gmailUrl, mailto: mailtoUrl });
+    window.location.href = mailtoUrl;
+
+    setSubmitted(true);
+    setErrors({});
   };
 
   return (
@@ -106,15 +130,17 @@ export default function ContactSection({ onOpenResume }) {
               {/* Clickable Direct Email Box */}
               <div className="p-4 bg-slate-50 dark:bg-[#08090C] hover:border-emerald-500/50 rounded-2xl border border-slate-200 dark:border-[#1E2536] flex items-center justify-between gap-3 mb-4 transition-colors">
                 <a 
-                  href={`mailto:${bioData.email}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(bioData.email)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 overflow-hidden group flex-1"
-                  title="Click to email Tanu Chaudhary"
+                  title="Click to compose email in Gmail"
                 >
                   <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-xl shrink-0 border border-emerald-200 dark:border-emerald-900/40 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="truncate">
-                    <span className="font-sans text-[11px] text-slate-500 dark:text-slate-400 block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Direct Email (Click to Open)</span>
+                    <span className="font-sans text-[11px] text-slate-500 dark:text-slate-400 block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Direct Email (Click to Open in Gmail)</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate block group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       {bioData.email}
                     </span>
@@ -244,12 +270,37 @@ export default function ContactSection({ onOpenResume }) {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="mb-5 p-4 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 rounded-2xl flex items-start gap-3 text-emerald-800 dark:text-emerald-200 text-xs sm:text-sm font-sans"
+                    className="mb-5 p-4 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 rounded-2xl space-y-2.5 text-emerald-900 dark:text-emerald-100 text-xs sm:text-sm font-sans"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold block font-grotesk text-sm text-emerald-700 dark:text-emerald-300">Message Draft Prepared!</span>
-                      <span>Your email client was opened to transmit your message directly to <strong>{bioData.email}</strong>. Looking forward to connecting!</span>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold block font-grotesk text-sm text-emerald-800 dark:text-emerald-300">
+                          Gmail Compose Window Launched!
+                        </span>
+                        <span className="text-slate-700 dark:text-slate-300 leading-relaxed block mt-0.5">
+                          Your draft has been prepared for <strong>{bioData.email}</strong>. Simply click <strong>Send</strong> in Gmail to deliver it.
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Direct Re-open & Fallback Buttons */}
+                    <div className="pt-2 border-t border-emerald-200/80 dark:border-emerald-800/60 flex flex-wrap items-center gap-2">
+                      <a
+                        href={lastUrls.gmail}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans font-bold text-xs transition-colors shadow-xs"
+                      >
+                        <span>Re-open in Gmail</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={lastUrls.mailto}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-[#111522] hover:bg-slate-100 dark:hover:bg-[#182030] text-slate-800 dark:text-white rounded-lg font-sans font-semibold text-xs border border-slate-200 dark:border-slate-700 transition-colors"
+                      >
+                        <span>Use Default Mail App</span>
+                      </a>
                     </div>
                   </motion.div>
                 )}
@@ -336,13 +387,27 @@ export default function ContactSection({ onOpenResume }) {
                   )}
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full py-3.5 sm:py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-sm rounded-full transition-all shadow-lg shadow-emerald-600/30 hover:shadow-xl hover:shadow-emerald-600/40 flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <Send className="w-4 h-4 text-white" />
-                  <span>{submitted ? 'Email Client Opened!' : 'Send Message'}</span>
-                </button>
+                <div className="space-y-2.5 pt-1">
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 sm:py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-sans font-bold text-sm rounded-full transition-all shadow-lg shadow-emerald-600/30 hover:shadow-xl hover:shadow-emerald-600/40 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                  >
+                    <Mail className="w-4 h-4 text-white" />
+                    <span>Send Message via Gmail</span>
+                    <ArrowUpRight className="w-4 h-4 text-white/80" />
+                  </button>
+
+                  <div className="flex items-center justify-center gap-2 text-xs font-sans text-slate-500 dark:text-slate-400">
+                    <span>Prefer default email app?</span>
+                    <button
+                      type="button"
+                      onClick={handleMailtoSend}
+                      className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline cursor-pointer"
+                    >
+                      Open in Mail App (Outlook / Apple Mail)
+                    </button>
+                  </div>
+                </div>
               </form>
             </div>
 
