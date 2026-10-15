@@ -13,7 +13,7 @@ export default function AboutSection({ onOpenResume }) {
     {
       num: '02',
       title: 'Quantitative Rigor',
-      desc: 'Validating every strategic hypothesis with cleaned SQL datasets, elasticity calculations, and DCF models.'
+      desc: 'Validating every strategic hypothesis with cleaned SQL datasets, exploratory trend analysis, and KPI dashboards.'
     },
     {
       num: '03',
@@ -109,7 +109,7 @@ export default function AboutSection({ onOpenResume }) {
                   🎯 Business Analyst Focus
                 </span>
                 <span className="px-3.5 py-1.5 bg-slate-100 dark:bg-[#08090C] text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-[#1E2536]">
-                  ⚡ Unit Economics & DCF
+                  ⚡ SQL & BI Dashboards
                 </span>
               </div>
             </div>
