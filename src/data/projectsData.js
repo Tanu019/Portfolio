@@ -261,7 +261,7 @@ export const bioData = {
     {
       role: "Data Analyst Intern",
       company: "The Purchase House",
-      period: "March 2024 – June 2024",
+      period: "March 2026 – May 2026",
       points: [
         "Utilized Advanced Excel for large-scale dataset cleaning, statistical analysis, and decision reporting.",
         "Designed interactive Power BI dashboards to visualize inventory, machine valuation, and asset turnover metrics."
