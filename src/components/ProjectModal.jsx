@@ -57,21 +57,12 @@ export default function ProjectModal({ project, onClose }) {
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
-                target={project.liveUrl.startsWith('#') ? '_self' : '_blank'}
+                target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (project.liveUrl.startsWith('#')) {
-                    e.preventDefault();
-                    onClose();
-                    setTimeout(() => {
-                      document.getElementById('sandbox')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-sans text-xs font-bold transition-all shadow-xs"
                 title={project.actionLabel || "Live Demo"}
               >
-                <span className="hidden sm:inline">{project.liveUrl.startsWith('#') ? 'Interactive Sandbox' : (project.actionLabel || 'Live Demo')}</span>
+                <span className="hidden sm:inline">{project.actionLabel || 'Live Demo'}</span>
                 <span className="sm:hidden">{project.actionLabel ? 'App' : 'Demo'}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>

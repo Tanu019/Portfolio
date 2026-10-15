@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import SkillsSection from './components/SkillsSection';
 import ProjectShowcase from './components/ProjectShowcase';
 import MindSaarSection from './components/MindSaarSection';
-import DecisionSandbox from './components/DecisionSandbox';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -156,9 +155,6 @@ export default function App() {
 
       {/* "Building with MindSaar" - Startup Section */}
       <MindSaarSection />
-
-      {/* Interactive Decision Sandbox */}
-      <DecisionSandbox />
 
       {/* About Section */}
       <AboutSection onOpenResume={() => setResumeOpen(true)} />

@@ -31,7 +31,7 @@ export default function Footer({ onOpenResume }) {
     { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#work' },
-    { label: 'Decision Sandbox', href: '#sandbox' },
+    { label: 'MindSaar', href: '#mindsaar' },
     { label: 'Contact', href: '#contact' },
   ];
 

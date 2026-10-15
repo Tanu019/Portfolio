@@ -48,7 +48,6 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
     { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#work' },
     { name: 'MindSaar', href: '#mindsaar' },
-    { name: 'Sandbox', href: '#sandbox' },
     { name: 'Contact', href: '#contact' },
   ];
 

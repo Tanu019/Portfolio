@@ -57,16 +57,6 @@ export default function CommandPalette({
       }
     },
     {
-      id: 'sec-sandbox',
-      title: 'Interactive Decision Sandbox',
-      category: 'Navigation',
-      icon: Calculator,
-      action: () => {
-        document.getElementById('sandbox')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
       id: 'sec-services',
       title: 'Capabilities & Strategy Toolkit',
       category: 'Navigation',

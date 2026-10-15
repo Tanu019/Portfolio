@@ -55,7 +55,7 @@ export default function SkillsSection() {
         <div className="space-y-4 max-w-5xl mx-auto">
           {services.map((service, idx) => {
             const Icon = service.icon;
-            const targetId = service.id === '01' || service.id === '02' ? 'sandbox' : 'work';
+            const targetId = 'work';
             return (
               <motion.div
                 key={service.id}

@@ -108,7 +108,6 @@ export const projectsData = [
     featured: true,
     accentColor: "#DEC396",
     highlightBadge: "EXCEL WORKBOOK (.XLSX)",
-    liveUrl: "#sandbox",
     fileUrl: "/downloads/DCF_Model_Unlisted_Company.xlsx",
     fileName: "DCF_Model_Unlisted_Company.xlsx",
     fileType: "Excel Spreadsheet (.xlsx)",
