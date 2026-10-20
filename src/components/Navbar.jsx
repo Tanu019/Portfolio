@@ -7,14 +7,12 @@ import {
   MessageSquare, 
   Search, 
   Sun, 
-  Moon,
-  Clock 
+  Moon
 } from 'lucide-react';
 
 export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenCommandPalette }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [localTime, setLocalTime] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,21 +24,6 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setLocalTime(new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-      }).format(now));
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
   }, []);
 
   const navLinks = [
@@ -79,7 +62,7 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
 
             <div className="flex flex-col">
               <span className="font-grotesk font-bold text-lg sm:text-xl text-slate-900 dark:text-white leading-none">
-                Tanu
+                Tanu Chaudhary
               </span>
               <span className="font-sans text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 tracking-wide">
                 Business Analyst
@@ -102,14 +85,6 @@ export default function Navbar({ theme, onToggleTheme, onOpenResume, onOpenComma
 
           {/* Right Action Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Live Local Time Badge */}
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-[#121620] border border-slate-200 dark:border-[#1E2536] text-[11px] font-mono text-slate-700 dark:text-slate-300">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>{localTime || '09:15 PM'} IST</span>
-            </div>
 
             {/* Search Button (Command Palette) */}
             <button
