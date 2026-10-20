@@ -13,22 +13,6 @@ import {
 import { motion } from 'framer-motion';
 
 export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
-  const [localTime, setLocalTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setLocalTime(new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-      }).format(now));
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const stats = [
     { number: '4+', label: 'Projects Completed' },
@@ -53,16 +37,6 @@ export default function Hero({ onExploreWork, onConnect, onOpenResume }) {
             transition={{ duration: 0.55 }}
             className="lg:col-span-5 flex flex-col justify-center space-y-6"
           >
-            {/* Live Local Time & Location Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111522] border border-emerald-200/60 dark:border-emerald-900/40 text-xs font-mono shadow-xs w-fit">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="font-sans font-medium text-slate-600 dark:text-slate-300">New Delhi, IN</span>
-              <span className="text-slate-300 dark:text-slate-600">•</span>
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">{localTime || '09:15 PM'} IST</span>
-            </div>
 
             {/* "Hello Welcome" tag */}
             <span className="font-sans text-sm sm:text-base text-slate-500 dark:text-slate-400 font-medium tracking-wide">

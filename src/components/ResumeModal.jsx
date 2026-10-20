@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { X, Printer, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { X, Printer, Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { bioData } from '../data/projectsData';
 
 export default function ResumeModal({ isOpen, onClose }) {
@@ -82,9 +82,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 >
                   <Phone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 print:text-black" /> {bioData.phone}
                 </a>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 print:text-black" /> Ambedkar Nagar, UP, India
-                </span>
+
                 <div className="flex items-center gap-3 pt-1">
                   <a href={bioData.linkedin} target="_blank" rel="noreferrer" className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1">
                     <Linkedin className="w-3 h-3" /> LinkedIn

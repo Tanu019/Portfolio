@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Linkedin, Github, ArrowUpRight, Copy, Check, Send, MapPin, AlertCircle, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, ArrowUpRight, Copy, Check, Send, AlertCircle, CheckCircle2, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { bioData } from '../data/projectsData';
 
@@ -242,10 +242,7 @@ export default function ContactSection({ onOpenResume }) {
             </div>
 
             <div className="pt-4 border-t border-slate-200 dark:border-[#1E2536] flex items-center justify-between text-xs font-sans text-slate-500 dark:text-slate-400">
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-                <span>New Delhi / Ambedkar Nagar, India</span>
-              </span>
+              <span className="text-slate-600 dark:text-slate-400 font-medium">Open to Hybrid & Remote Engagements</span>
               <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Immediate Availability</span>
             </div>
           </motion.div>

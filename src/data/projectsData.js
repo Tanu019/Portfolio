@@ -238,7 +238,6 @@ export const bioData = {
   tagline: "Exploring the intersection of data, finance and business.",
   email: "ctanu608@gmail.com",
   phone: "+91 8931075330",
-  location: "Ambedkar Nagar / Lucknow, India",
   linkedin: "https://www.linkedin.com/in/tanu-chaudhary-380863276",
   github: "https://github.com/Tanu019",
   shortBio: "I'm Tanu, an aspiring Business Analyst with a background in commerce and a growing interest in analytics, finance and technology. I enjoy exploring business problems, finding patterns in data and turning analysis into meaningful ideas.",
