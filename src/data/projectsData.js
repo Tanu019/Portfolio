@@ -255,6 +255,12 @@ export const bioData = {
       institution: "Babasaheb Bhimrao Ambedkar University",
       period: "2020 – 2023",
       highlight: "CGPA: 75.1% | Core foundation in Financial Accounting, Corporate Law & Commercial Economics"
+    },
+    {
+      degree: "Senior Secondary / Class XII (Commerce)",
+      institution: "CBSE Board",
+      period: "2018 – 2020",
+      highlight: "Commerce Stream • Core foundation in Economics, Accountancy & Business Studies"
     }
   ],
   experience: [

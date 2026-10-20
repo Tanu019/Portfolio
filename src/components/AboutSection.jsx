@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Briefcase, CheckCircle2, FileText, MapPin } from 'lucide-react';
+import { GraduationCap, Briefcase, CheckCircle2, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { bioData } from '../data/projectsData';
 
@@ -83,9 +83,9 @@ export default function AboutSection({ onOpenResume }) {
                   <p className="font-sans text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mt-1">
                     Business & Data Analyst
                   </p>
-                  <p className="font-sans text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-                    <span>New Delhi, India • Open to Hybrid / Remote</span>
+                  <p className="font-sans text-xs text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1.5 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Open to Hybrid / Remote</span>
                   </p>
                 </div>
               </div>
