@@ -247,20 +247,17 @@ export const bioData = {
     {
       degree: "MBA in Business Analytics",
       institution: "Sandip University",
-      period: "2025 – Pursuing",
-      highlight: "Specializing in Predictive Analytics, Business Intelligence & Strategic Decision Systems"
+      period: "2025 – Pursuing"
     },
     {
       degree: "B.Com (Honours)",
       institution: "Babasaheb Bhimrao Ambedkar University",
-      period: "2020 – 2023",
-      highlight: "CGPA: 75.1% | Core foundation in Financial Accounting, Corporate Law & Commercial Economics"
+      period: "2020 – 2023"
     },
     {
       degree: "Senior Secondary / Class XII (Commerce)",
       institution: "CBSE Board",
-      period: "2018 – 2020",
-      highlight: "Commerce Stream • Core foundation in Economics, Accountancy & Business Studies"
+      period: "2018 – 2020"
     }
   ],
   experience: [

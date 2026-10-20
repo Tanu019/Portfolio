@@ -118,7 +118,9 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <div>
                     <span className="font-bold text-slate-900 dark:text-white print:text-black">{edu.degree}</span>
                     <span className="text-slate-600 dark:text-slate-300 block sm:inline sm:ml-2">— {edu.institution}</span>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 print:text-gray-600 mt-0.5">{edu.highlight}</p>
+                    {edu.highlight && (
+                      <p className="text-xs text-slate-500 dark:text-slate-400 print:text-gray-600 mt-0.5">{edu.highlight}</p>
+                    )}
                   </div>
                   <span className="font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 print:text-gray-800 shrink-0 mt-1 sm:mt-0">{edu.period}</span>
                 </div>

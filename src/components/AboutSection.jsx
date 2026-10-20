@@ -215,9 +215,11 @@ export default function AboutSection({ onOpenResume }) {
                     <p className="font-sans text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                       {edu.institution} • {edu.period}
                     </p>
-                    <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                      {edu.highlight || edu.focus}
-                    </p>
+                    {(edu.highlight || edu.focus) && (
+                      <p className="font-sans text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                        {edu.highlight || edu.focus}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
