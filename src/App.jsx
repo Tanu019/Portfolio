@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SkillsSection from './components/SkillsSection';
 import ProjectShowcase from './components/ProjectShowcase';
-import MindSaarSection from './components/MindSaarSection';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -152,9 +151,6 @@ export default function App() {
         onSelectProjectFromParent={(proj) => setSelectedModalProject(proj)}
         externalSelectedProject={selectedModalProject}
       />
-
-      {/* "Building with MindSaar" - Startup Section */}
-      <MindSaarSection />
 
       {/* About Section */}
       <AboutSection onOpenResume={() => setResumeOpen(true)} />

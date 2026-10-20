@@ -47,16 +47,6 @@ export default function CommandPalette({
       }
     },
     {
-      id: 'sec-mindsaar',
-      title: 'MindSaar Startup & Digital Products',
-      category: 'Navigation',
-      icon: Sparkles,
-      action: () => {
-        document.getElementById('mindsaar')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
       id: 'sec-services',
       title: 'Capabilities & Strategy Toolkit',
       category: 'Navigation',
